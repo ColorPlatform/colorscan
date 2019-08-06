@@ -2,7 +2,7 @@
 Color Explorer for Color
 
 ## Projects running on mainnets
-[Color Explorer with Color](http://ec2-3-15-152-52.us-east-2.compute.amazonaws.com:3000/)
+[Color Explorer with Color](http://18.223.52.186:3000/)
 
 
 ## How to run Color

@@ -3,7 +3,7 @@ Color is always free and open. We welcome everyone to contribute to Color as in 
 You can contribute in the following ways:
 
 ## Submit issues
-If you find any errors, bugs, questions, feature requests when you are using Color (on [Color](http://ec2-3-15-152-52.us-east-2.compute.amazonaws.com:3000/) please do not hestitate to submit any [issues](https://github.com/). Any bug report and comments are welcome. We are always open to learn more about how this application can help Color users.
+If you find any errors, bugs, questions, feature requests when you are using Color (on [Color](http://18.223.52.186:3000/) please do not hestitate to submit any [issues](https://github.com/). Any bug report and comments are welcome. We are always open to learn more about how this application can help Color users.
 
 ## Create Pull Request
 If you are generous enough and can resolve some issues Color is experiencing, please build everything in your own branch and create a Pull Request to us. We will review and merge if necessary. 

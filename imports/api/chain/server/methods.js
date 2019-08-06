@@ -152,7 +152,7 @@ Meteor.methods({
         else{
             console.log('=== Start processing genesis file ===');
 
-            let response = HTTP.get("http://ec2-18-221-33-218.us-east-2.compute.amazonaws.com:26657/genesis");
+            let response = HTTP.get("http://18.223.52.186:26657/genesis");
             let genesis = JSON.parse(response.content);
             console.log(genesis.result.genesis)
             genesis = genesis.result.genesis
