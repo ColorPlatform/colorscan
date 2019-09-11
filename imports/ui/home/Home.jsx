@@ -55,7 +55,7 @@ export default class Home extends Component{
         return (
         <div>
             <div id="home" style={{
-                        marginLeft: expanded ? 240 : 64,
+                        marginLeft: expanded ? 200 : 64,
                         padding: '15px 20px 0 20px'
                     }}>
             <Helmet>
@@ -63,7 +63,7 @@ export default class Home extends Component{
                 <meta name="description" content="Color is a decentralized network of independent parallel blockchains, each powered by BFT consensus algorithms like Tendermint consensus." />
             </Helmet>
             <Row>
-                <Col md={3} xs={12}><h1>{Meteor.settings.public.chainName}</h1></Col>
+                <Col md={3} xs={12}><h1 className="d-none d-lg-block">{Meteor.settings.public.chainName}</h1></Col>
                 <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col>
             </Row>
             {(this.state.chainStopped)?<Card body inverse color="danger">

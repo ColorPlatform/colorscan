@@ -671,7 +671,6 @@
  }
  
  .sidenav {
-    top: 4rem !important;
     background: rgba(0, 0, 0, 0.03) !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important
  }
@@ -7068,9 +7067,10 @@
      -webkit-transform: translateX(100%);
      transform: translateX(100%)
  }
- 
+
  .sidenav---sidenav---_2tBP {
     background: rgba(0, 0, 0, 0.03) !important;
+    top: 4rem !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
  }
 

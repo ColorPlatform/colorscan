@@ -33,7 +33,7 @@ export default class Distribution extends Component{
         return (
         <div>
             <div id="voting-power-dist" style={{
-                            marginLeft: expanded ? 240 : 64,
+                            marginLeft: expanded ? 200 : 64,
                             padding: '15px 20px 15px 20px'
                         }}>
             <Helmet>

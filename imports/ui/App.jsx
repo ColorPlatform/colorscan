@@ -27,7 +27,7 @@ if (Meteor.isClient)
 // import './App.js'
 
 const RouteHeader = withRouter( ({history}) => <Header history={history}/>)
-const MobileSearchBar = withRouter( ({history}) => <SearchBar history={history} id="mobile-searchbar" mobile />)
+// const MobileSearchBar = withRouter( ({history}) => <SearchBar history={history} id="mobile-searchbar" mobile />)
 
 function getLang () {
     return (
@@ -76,7 +76,7 @@ class App extends Component {
                     <Container fluid id="main">
                         <ToastContainer />
                         <SentryBoundary>
-                            <MobileSearchBar />
+                            {/* <MobileSearchBar /> */}
                             <Switch>
                                 <Route exact path="/" component={Home} />
                                 <Route path="/blocks" component={BlocksTable} />

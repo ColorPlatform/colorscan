@@ -136,7 +136,7 @@ export default class AccountDetails extends Component{
             return (
             <div>
             <div id="account" style={{
-                        marginLeft: expanded ? 240 : 64,
+                        marginLeft: expanded ? 200 : 64,
                         padding: '15px 20px 0 20px'
                     }}>
                 <Helmet>

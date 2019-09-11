@@ -469,6 +469,10 @@ div.transactions-list div.tx-info .activity .card-body ul {
     text-align: left;
 }
 
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
+    min-width: 200px !important
+}
+
 div.transactions-list div.tx-info .badge:not(:last-child) {
     margin-bottom: 0.2rem;
 }
@@ -669,9 +673,10 @@ div#voting-power-dist .card{
 
 @media only screen and (max-width: 1023px){
     .navbar.fixed-top{
-        padding: 0 1rem;
+        padding: 0 1rem .5rem 1rem;
+        background-size: cover;
     }
-
+    
     div#main, div#transaction, div#block {
         padding-top: 3.5rem;
         /* padding-bottom: 4.8rem; */
@@ -684,9 +689,34 @@ div#voting-power-dist .card{
         padding: 0;
     }
 }
-@media only screen and (max-width: 500px){
-    .navbar.fixed-top{
-        background-size: cover
+
+@media only screen and (max-width: 978px){
+    #header-search{
+        margin-left: 3rem;
+    }
+}
+
+@media only screen and (max-width: 667px){
+    #header-search{
+        width: 30%
+    }
+}
+
+@media only screen and (max-width: 420px){
+    #header-search{
+        margin-left: 0
+    }
+}
+
+@media only screen and (max-width: 350px){
+    #header-search{
+        width: 20%
+    }
+}
+
+@media only screen and (max-width: 570px){
+    #network-nav{
+        display: none
     }
 }
 
