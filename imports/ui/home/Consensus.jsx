@@ -59,7 +59,7 @@ export default class Consensus extends Component{
                                             <Col md={6}>
                                                 <Card body className="shade">
                                                 <Row>
-                                                    <Col md={12} xs={4}><CardSubtitle><T>common.height</T></CardSubtitle></Col>
+                                                    <Col md={12} xs={4}><CardSubtitle className="display"><T>common.height</T></CardSubtitle></Col>
                                                     <Col md={12} xs={8}><span className="value">{numbro(this.props.consensus.votingHeight).format('0,0')}</span></Col>
                                                 </Row>
                                                 </Card>
@@ -67,7 +67,7 @@ export default class Consensus extends Component{
                                             <Col md={6}>
                                             <Card body className="shade">
                                                 <Row>
-                                                    <Col md={12} xs={4}><CardSubtitle><T>consensus.round</T></CardSubtitle></Col>
+                                                    <Col md={12} xs={4}><CardSubtitle className="display"><T>consensus.round</T></CardSubtitle></Col>
                                                     <Col md={12} xs={8}><span className="value">{this.props.consensus.votingRound}</span></Col>
                                                 </Row>
                                                 </Card>
@@ -77,7 +77,7 @@ export default class Consensus extends Component{
                                             <Col md={6}>
                                             <Card body className="shade">
                                                 <Row>   
-                                                    <Col md={12} xs={4}><CardSubtitle><T>consensus.step</T></CardSubtitle></Col>
+                                                    <Col md={12} xs={4}><CardSubtitle className="display"><T>consensus.step</T></CardSubtitle></Col>
                                                     <Col md={12} xs={8}><span className="value">{this.props.consensus.votingStep}</span></Col>
                                                 </Row>
                                                 </Card>
@@ -85,7 +85,7 @@ export default class Consensus extends Component{
                                             <Col md={6}>
                                             <Card body className="shade">
                                                 <Row>
-                                                    <Col md={12} xs={4}><CardSubtitle><T>blocks.proposer</T></CardSubtitle></Col>
+                                                    <Col md={12} xs={4}><CardSubtitle className="display"><T>blocks.proposer</T></CardSubtitle></Col>
                                                     <Col md={12} xs={8}><span className="value text-truncate"><Link to={"/validator/"+this.props.consensus.proposerAddress} ><Avatar moniker={moniker} identity={identity} address={this.props.consensus.proposerAddress} list={true} />{moniker}</Link></span></Col>
                                                 </Row>
                                                 </Card>

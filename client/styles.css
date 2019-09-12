@@ -27,7 +27,7 @@ body {
 
 i.material-icons + span {
     transform: translateY(-7px);
-    display: inline-block !important;
+    display: inline-block;
 }
 
 .copy-button{
@@ -97,8 +97,8 @@ a.navbar-brand .logo {
 }
 
 #footer{
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
     line-height: 1;
 }
 

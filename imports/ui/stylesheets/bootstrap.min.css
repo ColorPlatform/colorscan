@@ -7658,6 +7658,12 @@
      display: inline-flex !important
  }
  
+ @media (max-width: 420px) {
+     .screen {
+         display: none !important
+     }
+ }
+
  @media (min-width: 576px) {
      .d-sm-none {
          display: none !important
@@ -7760,6 +7766,12 @@
      }
  }
  
+ @media (max-width: 1110px) {
+     .dnone {
+         display: none !important
+     }
+ }
+
  @media (min-width: 1200px) {
      .d-xl-none {
          display: none !important

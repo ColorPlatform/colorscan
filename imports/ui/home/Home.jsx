@@ -80,10 +80,10 @@ export default class Home extends Component{
             </Row>
             <Row>
                 <Col md={6}>
-                    <PieChart />
+                    <TopValidators />
                 </Col>
                 <Col md={6}>
-                    <TopValidators />
+                    <PieChart />
                 </Col>
             </Row>
 
