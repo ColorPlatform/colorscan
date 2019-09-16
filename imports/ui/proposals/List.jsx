@@ -10,12 +10,12 @@ const T = i18n.createComponent();
 
 const ProposalRow = (props) => {
     return <tr>
-        <th className="d-none d-sm-table-cell counter">{props.proposal.proposalId}</th>
+        <th className="counter">{props.proposal.proposalId}</th>
         <td className="title"><Link to={"/proposals/"+props.proposal.proposalId}>{props.proposal.proposal_content.value.title}</Link></td>
-        <td className="status"><ProposalStatusIcon status={props.proposal.proposal_status}/><span className="d-none d-sm-inline">{props.proposal.proposal_status.match(/[A-Z]+[^A-Z]*|[^A-Z]+/g).join(" ")}</span></td>
+        <td className="status"><ProposalStatusIcon status={props.proposal.proposal_status}/><span>{props.proposal.proposal_status.match(/[A-Z]+[^A-Z]*|[^A-Z]+/g).join(" ")}</span></td>
         <td className="submit-block">{moment.utc(props.proposal.submit_time).format("D MMM YYYY, h:mm:ssa")}</td>
         <td className="voting-start">{(props.proposal.voting_start_time != "0001-01-01T00:00:00Z")?moment.utc(props.proposal.voting_start_time).format("D MMM YYYY, h:mm:ssa"):'Not started'}</td>
-        <td className="deposit text-right">{props.proposal.total_deposit?props.proposal.total_deposit.map((deposit, i) => {
+        <td className="deposit">{props.proposal.total_deposit?props.proposal.total_deposit.map((deposit, i) => {
             return <div key={i}>{numbro(deposit.amount).format('0,0')} {deposit.denom}</div>
         }):'0'}</td>
     </tr>
@@ -57,21 +57,21 @@ export default class List extends Component{
             return <Spinner type="grow" color="primary" />
         }
         else{
-            return (
-                <Table striped className="proposal-list">
+            return <div className="proposal-table">
+                <Table striped scrollX className="proposal-list table-responsive">
                     <thead>
                         <tr>
-                            <th className="d-none d-sm-table-cell counter"><i className="fas fa-hashtag"></i> <span className="dnone"><T>proposals.proposalID</T></span></th>
-                            <th className="title"><i className="fas fa-bars"></i> <span className="d-none d-sm-inline dnone"><T>proposals.title</T></span></th>
-                            <th className="status"><i className="fas fa-toggle-on"></i> <span className="d-none d-sm-inline dnone"><T>proposals.status</T></span></th>
-                            <th className="submit-block"><i className="fas fa-box"></i> <span className="d-none d-sm-inline dnone"><T>proposals.submitTime</T> (UTC)</span></th>
-                            <th className="voting-start"><i className="fas fa-box-open"></i> <span className="d-none d-sm-inline dnone"><T>proposals.votingStartTime</T> (UTC)</span></th>
-                            <th className="deposit text-right"><i className="fas fa-dollar-sign"></i> <span className="d-none d-sm-inline dnone"><T>proposals.totalDeposit</T></span></th>
+                            <th className="counter"><i className="fas fa-hashtag"></i><T>proposals.proposalID</T></th>
+                            <th className="title"><i className="fas fa-bars"></i><T>proposals.title</T></th>
+                            <th className="status"><i className="fas fa-toggle-on"></i><T>proposals.status</T></th>
+                            <th className="submit-block"><i className="fas fa-box"></i><T>proposals.submitTime</T> (UTC)</th>
+                            <th className="voting-start"><i className="fas fa-box-open"></i><T>proposals.votingStartTime</T> (UTC)</th>
+                            <th className="deposit"><i className="fas fa-dollar-sign"></i><T>proposals.totalDeposit</T></th>
                         </tr>
                     </thead>
                     <tbody>{this.state.proposals}</tbody>
                 </Table>
-            )
+                </div>
         }
     }
 }

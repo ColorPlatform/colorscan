@@ -93,7 +93,7 @@ a.navbar-brand .logo {
 
 #mobile-searchbar {
     margin-bottom: 0.5em;
-    padding-left: 4rem !important;
+    /* padding-left: 4rem !important; */
 }
 
 #footer{
@@ -601,6 +601,9 @@ div#voting-power-dist .card{
     #block ul.tx-types .nav-link{
         padding: 0.5em 0;
     }
+    #footer {
+        display: none
+    }
 }
 
 @media only screen and (min-width: 768px){
@@ -696,7 +699,7 @@ div#voting-power-dist .card{
     }
 }
 
-@media only screen and (max-width: 667px){
+/* @media only screen and (max-width: 667px){
     #header-search{
         width: 30%
     }
@@ -712,9 +715,9 @@ div#voting-power-dist .card{
     #header-search{
         width: 20%
     }
-}
+} */
 
-@media only screen and (max-width: 570px){
+@media only screen and (max-width: 420px){
     #network-nav{
         display: none
     }

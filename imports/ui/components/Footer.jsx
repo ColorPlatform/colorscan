@@ -27,28 +27,28 @@ export default class Footer extends React.Component {
                         </NavItem>
                     </Nav>
                 </Navbar>
-                {/* <Navbar color="light" light fixed="bottom" className="d-block d-md-none mobile-menu">
+                <Navbar color="light" light fixed="bottom" className="d-block d-md-none mobile-menu">
                     <Nav>
                         <NavItem>
-                            <NavLink tag={Link} to="/"><i className="material-icons">home</i></NavLink>
+                            <NavLink tag={Link} to="/"><i className="fa fa-fw fa-home" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/validators"><i className="material-icons">perm_contact_calendar</i></NavLink>
+                            <NavLink tag={Link} to="/validators"><i className="fa fa-fw fa-spinner" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/blocks"><i className="fas fa-square"></i></NavLink>
+                            <NavLink tag={Link} to="/blocks"><i className="fa fa-fw fa-cube" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/transactions"><i className="fas fa-sync"></i></NavLink>
+                            <NavLink tag={Link} to="/transactions"><i className="fa fa-fw fa-random" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/proposals"><i className="material-icons">insert_drive_file</i></NavLink>
+                            <NavLink tag={Link} to="/proposals"><i className="fa fa-fw fa-edit" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/voting-power-distribution"><i className="material-icons">power_on</i></NavLink>
+                            <NavLink tag={Link} to="/voting-power-distribution"><i className="fa fa-fw fa-chart-bar" /></NavLink>
                         </NavItem>
                     </Nav>
-                </Navbar> */}
+                </Navbar>
             </div>  
         );
     }

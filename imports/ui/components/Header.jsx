@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { HTTP } from 'meteor/http'
-import {Badge,Navbar,NavbarBrand,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
+import {Badge,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar.jsx';
 import i18n from 'meteor/universe:i18n';
@@ -71,9 +71,12 @@ export default class Header extends Component {
               </UncontrolledDropdown>
               <SearchBar id="header-search" history={this.props.history} />
               
-              {/* <NavbarToggler onClick={this.toggle} />
+              <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto text-nowrap" navbar>
+                      <NavItem>
+                          <NavLink tag={Link} to="/"><T>Dashboard</T></NavLink>
+                      </NavItem>
                       <NavItem>
                           <NavLink tag={Link} to="/validators"><T>navbar.validators</T></NavLink>
                       </NavItem>
@@ -88,7 +91,7 @@ export default class Header extends Component {
                       </NavItem>
                       <NavItem>
                           <NavLink tag={Link} to="/voting-power-distribution"><T>navbar.votingPower</T></NavLink>
-                      </NavItem> */}
+                      </NavItem>
                       {/* <NavItem>
                           <UncontrolledDropdown inNavbar>
                               <DropdownToggle nav caret>
@@ -101,8 +104,8 @@ export default class Header extends Component {
                               </DropdownMenu>
                           </UncontrolledDropdown>
                       </NavItem> */}
-                  {/* </Nav>
-              </Collapse> */}
+                  </Nav>
+              </Collapse>
           </Navbar>
       );
   }

@@ -93,12 +93,11 @@ export default class Home extends Component{
                 <SideNav.Nav selected={selected} defaultSelected="dashboard">
                     <NavItem eventKey="dashboard" onClick={ e => this.props.history.push("/") } title="Dashboard">
                         <NavIcon>
-                            <i className="fa fa-fw fa-th" style={{ fontSize: '1.5em', color: 'black' }} />
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.5em', color: 'black' }} />
                         </NavIcon>
                         <NavText>
                             Dashboard
                         </NavText>
-                        
                     </NavItem>
                     <NavItem eventKey="validators" onClick={ e => this.props.history.push("/validators") } title="Validators">
                         <NavIcon>
@@ -107,7 +106,6 @@ export default class Home extends Component{
                         <NavText>
                             Validators
                         </NavText>
-                        
                     </NavItem>
                     <NavItem eventKey="blocks" onClick={ e => this.props.history.push("/blocks") } title="Blocks">
                         <NavIcon>
@@ -116,7 +114,6 @@ export default class Home extends Component{
                         <NavText>
                             Blocks
                         </NavText>
-                        
                     </NavItem>
                     <NavItem eventKey="transactions" onClick={ e => this.props.history.push("/transactions") } title="Transactions">
                         <NavIcon>
@@ -125,7 +122,6 @@ export default class Home extends Component{
                         <NavText>
                             Transactions
                         </NavText>
-                        
                     </NavItem>
                     <NavItem eventKey="proposals" onClick={ e => this.props.history.push("/proposals") } title="Proposals">
                         <NavIcon>
@@ -134,7 +130,6 @@ export default class Home extends Component{
                         <NavText>
                             Proposals
                         </NavText>
-                        
                     </NavItem>
                     <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Voting Power">
                         <NavIcon>

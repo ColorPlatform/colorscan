@@ -92,7 +92,7 @@ export default class BlocksTable extends Component {
         const { expanded, selected } = this.state;
         return (
         <div>
-            <div style={{
+            <div id="blockstable" style={{
                         marginLeft: expanded ? 200 : 64,
                         padding: '15px 20px 0 20px'
                     }}>
@@ -131,7 +131,7 @@ export default class BlocksTable extends Component {
                 <SideNav.Nav selected={selected} defaultSelected="blocks">
                     <NavItem eventKey="dashboard" onClick={ e => this.props.history.push("/") } title="Dashboard">
                         <NavIcon>
-                            <i className="fa fa-fw fa-th" style={{ fontSize: '1.5em', color: 'black' }} />
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.5em', color: 'black' }} />
                         </NavIcon>
                         <NavText>
                             Dashboard

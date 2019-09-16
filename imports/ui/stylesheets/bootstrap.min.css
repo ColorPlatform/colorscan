@@ -4923,6 +4923,9 @@
      .navbar-expand-md .navbar-toggler {
          display: none
      }
+     .navbar-expand-lg .navbar-toggler {
+        display: none
+    }
  }
  
  @media (max-width: 991.98px) {
@@ -4961,16 +4964,13 @@
          -ms-flex-wrap: nowrap;
          flex-wrap: nowrap
      }
-     .navbar-expand-lg .navbar-collapse {
+     /* .navbar-expand-lg .navbar-collapse {
          display: -webkit-box !important;
          display: -ms-flexbox !important;
          display: flex !important;
          -ms-flex-preferred-size: auto;
          flex-basis: auto
-     }
-     .navbar-expand-lg .navbar-toggler {
-         display: none
-     }
+     } */
  }
  
  @media (max-width: 1199.98px) {
@@ -5137,7 +5137,8 @@
  
  .navbar-dark .navbar-nav .nav-link:hover,
  .navbar-dark .navbar-nav .nav-link:focus {
-     color: #fff
+     color: #fff !important;
+     font-weight: bold
  }
  
  .navbar-dark .navbar-nav .nav-link.disabled {
@@ -7074,6 +7075,16 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
  }
 
+ @media only screen and (max-width: 768px){
+    .sidenav---sidenav---_2tBP {
+        display: none
+    }
+    #home , #validator-list , #blockstable , #transactions , #proposals , #voting-power-dist , #account , #validatordetails {
+        margin-left: 0 !important;
+        padding: 0 !important
+    }
+ }
+
  .carousel-item-prev:not(.carousel-item-right),
  .active.carousel-item-left {
      -webkit-transform: translateX(-100%);
@@ -7658,11 +7669,11 @@
      display: inline-flex !important
  }
  
- @media (max-width: 420px) {
+ /* @media (max-width: 420px) {
      .screen {
          display: none !important
      }
- }
+ } */
 
  @media (min-width: 576px) {
      .d-sm-none {
@@ -7730,12 +7741,17 @@
          display: -ms-inline-flexbox !important;
          display: inline-flex !important
      }
+     .d-lg-flex {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important
+    }
+    .d-lg-none {
+        display: none !important
+    }
  }
  
  @media (min-width: 992px) {
-     .d-lg-none {
-         display: none !important
-     }
      .d-lg-inline {
          display: inline !important
      }
@@ -7753,11 +7769,6 @@
      }
      .d-lg-table-cell {
          display: table-cell !important
-     }
-     .d-lg-flex {
-         display: -webkit-box !important;
-         display: -ms-flexbox !important;
-         display: flex !important
      }
      .d-lg-inline-flex {
          display: -webkit-inline-box !important;
@@ -11078,14 +11089,30 @@
  
  .navbar {
      border: none;
-     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
+     -webkit-box-shadow: 0px 0px 2px rgb(0, 0, 0);
+     box-shadow: 0px 0px 2px rgb(0, 0, 0)
  }
  
  .navbar-brand {
      font-size: 24px
  }
+
+ .proposal-table table th,td {
+     width: 16%
+ }
+ .proposal-table ::-webkit-scrollbar{
+    width: 12px;
+ }
+ .proposal-table ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+ }
  
+ .proposal-table  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+ }
+
  .navbar-nav .nav-link {
      padding-top: 0.9rem;
      padding-bottom: 0.9rem
