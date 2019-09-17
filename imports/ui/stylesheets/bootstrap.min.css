@@ -11097,6 +11097,10 @@
      font-size: 24px
  }
 
+ .votingbarheight {
+    height: 90px !important
+ }
+
  .proposal-table table th,td {
      width: 16%
  }

@@ -89,7 +89,7 @@ export default class VotingPower extends Component{
                 return (                    
                     <Card>
                         <div className="card-header backgroundcolor"><T>common.votingPower</T></div>
-                        <CardBody id="voting-power-chart">
+                        <CardBody className="votingbarheight" id="voting-power-chart">
                             <HorizontalBar data={this.state.data} options={this.state.options} />
                         </CardBody>
                     </Card>
