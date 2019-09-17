@@ -235,6 +235,10 @@ table.proposal-list th.status{
     transition: all 2s ease-out;
 }
 
+.marginbottom {
+    margin-bottom: 2rem
+}
+
 div#countdown {
     display: inline-block;
     width: auto;
