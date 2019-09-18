@@ -7075,7 +7075,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
  }
 
- @media only screen and (max-width: 768px){
+ @media only screen and (max-width: 767px){
     .sidenav---sidenav---_2tBP {
         display: none
     }
