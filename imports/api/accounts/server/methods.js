@@ -5,7 +5,7 @@ Meteor.methods({
     'accounts.getBalance': function(address){
         this.unblock();
         let balance = {}
-        // get available atoms
+        // get available color
         let url = LCD + '/bank/balances/'+ address;
         try{
             let available = HTTP.get(url);

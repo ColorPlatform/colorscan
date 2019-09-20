@@ -37,7 +37,7 @@ export default class ValidatorDelegations extends Component{
                     delegations: delegations.map((d, i) => {
                         return <Row key={i} className="delegation-info">
                             <Col md={8} className="text-nowrap overflow-auto"><Account address={d.delegator_address} /></Col>
-                            <Col md={4}>{numbro(d.shares/this.props.shares*this.props.tokens/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}s</Col>
+                            <Col md={4}>{numbro(d.shares/this.props.shares*this.props.tokens/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</Col>
                         </Row>
                     })
                 })
@@ -51,7 +51,7 @@ export default class ValidatorDelegations extends Component{
         }
         else{
             return <Card>
-                <CardHeader>{(this.state.numDelegatiors > 0)?this.state.numDelegatiors:'No'} <T>common.delegators</T> {(this.state.numDelegatiors > 0)?<small className="text-secondary">({numbro(this.props.tokens/this.state.numDelegatiors/Meteor.settings.public.stakingFraction).format('0,0.00')} {Meteor.settings.public.stakingDenom}s / delegator)</small>:''}</CardHeader>
+                <CardHeader>{(this.state.numDelegatiors > 0)?this.state.numDelegatiors:'No'} <T>common.delegators</T> {(this.state.numDelegatiors > 0)?<small className="text-secondary">({numbro(this.props.tokens/this.state.numDelegatiors/Meteor.settings.public.stakingFraction).format('0,0.00')} {Meteor.settings.public.stakingDenom} / delegator)</small>:''}</CardHeader>
                 <CardBody className="list">
                     <Container fluid>
                         <Row className="header text-nowrap d-none d-lg-flex">

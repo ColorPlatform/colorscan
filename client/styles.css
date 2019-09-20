@@ -96,10 +96,15 @@ a.navbar-brand .logo {
     /* padding-left: 4rem !important; */
 }
 
-#footer{
+/* #footer{
     padding-top: 0rem;
     padding-bottom: 0rem;
     line-height: 1;
+} */
+
+#footer a:hover{
+    color: #59ccc8 !important;
+    text-decoration: none
 }
 
 div#main, div#transaction, div#block{
@@ -235,8 +240,26 @@ table.proposal-list th.status{
     transition: all 2s ease-out;
 }
 
-.marginbottom {
-    margin-bottom: 2rem
+.is-active {
+    color: black
+}
+
+.iss-active {
+    font-weight: bold;
+    color: #59ccc8 !important
+}
+
+.toggle {
+    padding: 1rem
+}
+
+#toggle a {
+    color: white !important
+}
+
+#toggle a:hover {
+    color: #59ccc8 !important;
+    text-decoration: none
 }
 
 div#countdown {

@@ -141,11 +141,11 @@ export default class AccountDetails extends Component{
                     }}>
                 <Helmet>
                     <title>Account Details of {this.state.address} on Color Explorer | Color</title>
-                    <meta name="description" content={"Account Details of "+this.state.address+" on Color"} />
+                    <meta name="description" content={"Account Details of "+this.state.address+" on Color Explorer"} />
                 </Helmet>
                 <Row>
                     <Col md={3} xs={12}><h1 className="d-none d-lg-block"><T>accounts.accountDetails</T></h1></Col>
-                    <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col>
+                    {/* <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col> */}
                 </Row>
                 <h3 className="text-primary"><AccountCopy address={this.state.address} /></h3>
                 <Row>
@@ -184,8 +184,8 @@ export default class AccountDetails extends Component{
                                 <Col md={6} lg={4} className="total d-flex flex-column justify-content-end">
                                     <Row>
                                         <Col xs={4} className="label d-flex align-self-end"><div className="infinity" /><T>accounts.total</T></Col>
-                                        <Col xs={8} className="value text-right">{numbro(this.state.total/Meteor.settings.public.stakingFraction).format("0,0.0000a")} {Meteor.settings.public.stakingDenom}s</Col>
-                                        <Col xs={12} className="dollar-value text-right text-secondary">~{numbro(this.state.total/Meteor.settings.public.stakingFraction*this.state.price).format("$0,0.0000a")} ({numbro(this.state.price).format("$0,0.00")}/ATOM)</Col>
+                                        <Col xs={8} className="value text-right">{numbro(this.state.total/Meteor.settings.public.stakingFraction).format("0,0.0000a")} {Meteor.settings.public.stakingDenom}</Col>
+                                        <Col xs={12} className="dollar-value text-right text-secondary">~{numbro(this.state.total/Meteor.settings.public.stakingFraction*this.state.price).format("$0,0.0000a")} ({numbro(this.state.price).format("$0,0.00")}/CLR)</Col>
                                     </Row>
                                 </Col>
                             </Row>

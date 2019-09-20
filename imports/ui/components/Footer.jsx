@@ -2,10 +2,9 @@ import React from 'react';
 import {
     Navbar,
     Nav,
-    NavItem,
-    NavLink } from 'reactstrap';
+    NavItem } from 'reactstrap';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import i18n from 'meteor/universe:i18n';
 
@@ -22,30 +21,30 @@ export default class Footer extends React.Component {
                 <Navbar light expand="md" fixed="bottom" id="footer" className="d-md-flex footer-color">
                     <span className="text-muted">All rights reserved &copy;{moment().format('YYYY')}</span>
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <NavLink className="white">Color Platform</NavLink>
+                        <NavItem id="footer">
+                            <NavLink to="/" className="white">Color Platform</NavLink>
                         </NavItem>
                     </Nav>
                 </Navbar>
                 <Navbar color="light" light fixed="bottom" className="d-block d-md-none mobile-menu">
                     <Nav>
                         <NavItem>
-                            <NavLink tag={Link} to="/"><i className="fa fa-fw fa-home" /></NavLink>
+                            <NavLink className={window.location.pathname.split('/')[1]===""?'is-active':null} to="/"><i className="fa fa-fw fa-home" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/validators"><i className="fa fa-fw fa-spinner" /></NavLink>
+                            <NavLink className={window.location.pathname.split('/')[1]==="validator" || window.location.pathname.split('/')[1]==="validators" || window.location.pathname.split('/')[1]==="account"?'is-active':null} to="/validators"><i className="fa fa-fw fa-spinner" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/blocks"><i className="fa fa-fw fa-cube" /></NavLink>
+                            <NavLink className={window.location.pathname.split('/')[1]==="blocks"?'is-active':null} to="/blocks"><i className="fa fa-fw fa-cube" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/transactions"><i className="fa fa-fw fa-random" /></NavLink>
+                            <NavLink className={window.location.pathname.split('/')[1]==="transactions"?'is-active':null} to="/transactions"><i className="fa fa-fw fa-random" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/proposals"><i className="fa fa-fw fa-edit" /></NavLink>
+                            <NavLink className={window.location.pathname.split('/')[1]==="proposals"?'is-active':null} to="/proposals"><i className="fa fa-fw fa-edit" /></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/voting-power-distribution"><i className="fa fa-fw fa-chart-bar" /></NavLink>
+                            <NavLink className={window.location.pathname.split('/')[1]==="voting-power-distribution"?'is-active':null} to="/voting-power-distribution"><i className="fa fa-fw fa-chart-bar" /></NavLink>
                         </NavItem>
                     </Nav>
                 </Navbar>

@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import { HTTP } from 'meteor/http'
-import {Badge,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
-import { Link } from 'react-router-dom';
+import {Badge,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar.jsx';
 import i18n from 'meteor/universe:i18n';
 
@@ -64,7 +64,7 @@ export default class Header extends Component {
   render() {
       return (
           <Navbar className="background" dark expand="lg" fixed="top" id="header">
-              <NavbarBrand tag={Link} to="/"><img src="/img/ColorWhiteplatform1.png" className="img-fluid logo"/></NavbarBrand>
+              <NavbarBrand to="/"><img src="/img/ColorWhiteplatform1.png" className="img-fluid logo"/></NavbarBrand>
               <UncontrolledDropdown className="d-inline text-nowrap">
                   <DropdownToggle caret={(this.state.networks !== "")} tag="span" size="sm" id="network-nav">{Meteor.settings.public.chainId}</DropdownToggle>
                   {this.state.networks}
@@ -74,23 +74,23 @@ export default class Header extends Component {
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto text-nowrap" navbar>
-                      <NavItem>
-                          <NavLink tag={Link} to="/"><T>Dashboard</T></NavLink>
+                      <NavItem id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]===""?'iss-active':null} to="/"><T>Dashboard</T></NavLink>
                       </NavItem>
-                      <NavItem>
-                          <NavLink tag={Link} to="/validators"><T>navbar.validators</T></NavLink>
+                      <NavItem id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="validator" || window.location.pathname.split('/')[1]==="validators" || window.location.pathname.split('/')[1]==="account"?'iss-active':null} to="/validators"><T>navbar.validators</T></NavLink>
                       </NavItem>
-                      <NavItem>
-                          <NavLink tag={Link} to="/blocks"><T>navbar.blocks</T></NavLink>
+                      <NavItem id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="blocks"?'iss-active':null} to="/blocks"><T>navbar.blocks</T></NavLink>
                       </NavItem>
-                      <NavItem>
-                          <NavLink tag={Link} to="/transactions"><T>navbar.transactions</T></NavLink>
+                      <NavItem id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="transactions"?'iss-active':null} to="/transactions"><T>navbar.transactions</T></NavLink>
                       </NavItem>
-                      <NavItem>
-                          <NavLink tag={Link} to="/proposals"><T>navbar.proposals</T></NavLink>
+                      <NavItem id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="proposals"?'iss-active':null} to="/proposals"><T>navbar.proposals</T></NavLink>
                       </NavItem>
-                      <NavItem>
-                          <NavLink className="marginbottom" tag={Link} to="/voting-power-distribution"><T>navbar.votingPower</T></NavLink>
+                      <NavItem id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="voting-power-distribution"?'iss-active':null} to="/voting-power-distribution"><T>navbar.votingPower</T></NavLink>
                       </NavItem>
                       {/* <NavItem>
                           <UncontrolledDropdown inNavbar>

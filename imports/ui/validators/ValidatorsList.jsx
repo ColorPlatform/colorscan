@@ -102,7 +102,7 @@ export default class Validators extends Component{
             </Helmet>
             <Row>
                 <Col lg={3} xs={12}><h1 className="d-none d-lg-block">{title}</h1></Col>
-                <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col>
+                {/* <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col> */}
             </Row>
             <Nav pills className="status-switch">
                 <NavItem>
@@ -121,7 +121,7 @@ export default class Validators extends Component{
                     <Card body>
                         <Row className="header text-nowrap">
                             <Col className="d-none d-md-block counter" md={1}>&nbsp;</Col>
-                            <Col className="moniker" md={2} onClick={(e) => this.toggleDir('moniker',e)}><i className="material-icons">perm_contact_calendar</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.moniker</T></span> {renderToggleIcon(this.state.monikerDir)} </Col>
+                            <Col className="moniker" md={2} onClick={(e) => this.toggleDir('moniker',e)}><i className="material-icons">perm_contact_calendar</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>Node Name</T></span> {renderToggleIcon(this.state.monikerDir)} </Col>
                             <Col className="voting-power" md={3} lg={2} onClick={(e) => this.toggleDir('votingPower',e)}><i className="material-icons">power</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>common.votingPower</T></span> {renderToggleIcon(this.state.votingPowerDir)} </Col>
                             <Col className="self-delegation" md={2} onClick={(e) => this.toggleDir('selfDel',e)}><i className="material-icons">equalizer</i> <span className="d-md-none d-lg-inline-block"><T>validators.selfPercentage</T></span> {renderToggleIcon(this.state.selfDelDir==1)} </Col>
                             {(!this.props.inactive)?<Col className="commission" md={1} lg={2} onClick={(e) => this.toggleDir('commission',e)}><i className="material-icons">call_split</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.commission</T></span> {renderToggleIcon(this.state.commissionDir==1)}</Col>:''}

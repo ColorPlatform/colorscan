@@ -68,7 +68,7 @@ export default class TopValidators extends Component{
                         <Table striped className="random-validators">
                             <thead>
                                 <tr>
-                                    <th className="moniker"><i className="far fa-calendar"></i><span className="d-none d-sm-inline"><T>validators.moniker</T></span></th>
+                                    <th className="moniker"><i className="far fa-calendar"></i><span className="d-none d-sm-inline"><T>Node Name</T></span></th>
                                     <th className="voting-power"><i className="fas fa-plug"></i><span className="d-none d-sm-inline"><T>common.votingPower</T></span></th>
                                     <th className="uptime"><i className="fas fa-bolt"></i><span className="d-none d-sm-inline"><T>validators.uptime</T></span></th>
                                 </tr>

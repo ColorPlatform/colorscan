@@ -59,12 +59,12 @@ export default class Home extends Component{
                         padding: '15px 20px 0 20px'
                     }}>
             <Helmet>
-                <title>Color | Explorer by RNS</title>
-                <meta name="description" content="Color is a decentralized network of independent parallel blockchains, each powered by BFT consensus algorithms like Tendermint consensus." />
+                <title>Color | Explorer</title>
+                <meta name="description" content="Color is a decentralized network of independent parallel blockchains, each powered by BFT consensus algorithms like Prism consensus." />
             </Helmet>
             <Row>
                 <Col md={3} xs={12}><h1 className="d-none d-lg-block">{Meteor.settings.public.chainName}</h1></Col>
-                <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col>
+                {/* <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col> */}
             </Row>
             {(this.state.chainStopped)?<Card body inverse color="danger">
                             <span><T _purify={false} time={moment(this.props.consensus.latestBlockTime).fromNow(true)}>chainStatus.stopWarning</T></span>             

@@ -56,6 +56,9 @@ export default class List extends Component{
         if (this.props.loading){
             return <Spinner type="grow" color="primary" />
         }
+        else if (this.props.proposalsExist){
+            return <div><T>No Proposal Found</T></div>
+        }
         else{
             return <div className="proposal-table">
                 <Table striped scrollX className="proposal-list table-responsive">

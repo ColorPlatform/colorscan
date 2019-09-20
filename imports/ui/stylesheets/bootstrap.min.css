@@ -509,6 +509,7 @@
      padding-left: 5rem !important
  }
 
+
  .resultpaddingleft {
      padding-left: 0px !important
  }
@@ -629,9 +630,12 @@
      }
  }
  
- @media (min-width: 768px) {
+ @media (max-width: 767px) {
      .container {
          max-width: 720px
+     }
+     .paddingleft {
+         padding-left: 1rem !important
      }
  }
  
@@ -7347,9 +7351,10 @@
  }
  
  .background {
-    background-image: url("/img/header.png");
+     background: #2F2637
+    /* background-image: url("/img/header.png");
     background-size: contain;
-    box-shadow: none !important
+    box-shadow: none !important */
  }
 
  .backgroundcolor {
