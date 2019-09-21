@@ -38,7 +38,7 @@ export default class Transactions extends Component{
         if (this.props.loading){
             return <Spinner type="grow" color="primary" />
         }
-        else if (this.props.transactionsExist){
+        else if (!this.props.transactionsExist){
             return <div><T>No Transaction Found</T></div>
         }
         else{

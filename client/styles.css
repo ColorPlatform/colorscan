@@ -157,6 +157,10 @@ div#block-table,
     margin-top: 2.5em;
 }
 
+#proposals-table {
+    margin-top: 2.5em;
+}
+
 table#block-table,
 table.random-validators,
 table.validator-list,
