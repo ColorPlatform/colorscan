@@ -61,7 +61,7 @@ export default class List extends Component{
         }
         else{
             return <div id="proposals-table" className="proposal-table">
-                <Table striped scrollX className="proposal-list table-responsive">
+                <Table striped className="proposal-list table-responsive">
                     <thead>
                         <tr>
                             <th className="counter"><i className="fas fa-hashtag"></i><T>proposals.proposalID</T></th>

@@ -36,7 +36,7 @@ export default class ValidatorDetails extends Component{
                         padding: '15px 20px 0 20px'
                     }}>
             <Row>
-                <Col lg={3} xs={12}><h1 className="d-none d-lg-block"><h1 className="d-none d-lg-block"></h1><T>validators.validatorDetails</T></h1></Col>
+                <Col lg={12} xs={12}><h1 className="d-none d-lg-block"><h1 className="d-none d-lg-block"></h1><T>validators.validatorDetails</T></h1></Col>
                 {/* <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col> */}
             </Row>
             <Row>

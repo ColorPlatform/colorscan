@@ -63,7 +63,7 @@ export default class Home extends Component{
                 <meta name="description" content="Color is a decentralized network of independent parallel blockchains, each powered by BFT consensus algorithms like Prism consensus." />
             </Helmet>
             <Row>
-                <Col md={3} xs={12}><h1 className="d-none d-lg-block">{Meteor.settings.public.chainName}</h1></Col>
+                <Col md={12} xs={12}><h1 className="d-none d-lg-block">{Meteor.settings.public.chainName}</h1></Col>
                 {/* <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col> */}
             </Row>
             {(this.state.chainStopped)?<Card body inverse color="danger">

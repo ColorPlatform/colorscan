@@ -7,6 +7,7 @@ import ColorErrors from '../components/ColorErrors.jsx';
 import ButtonActivities from '../components/ButtonActivities.jsx';
 import TimeAgo from '../components/TimeAgo.jsx';
 import numbro from 'numbro';
+import moment from 'moment';
 import Coin from '/both/utils/coins.js'
 
 export const TransactionRow = (props) => {
@@ -29,8 +30,8 @@ export const TransactionRow = (props) => {
         }):<span>No fee</span>}</Col>
         {(!props.blockList)?<Col xs={2} md={2}><i className="fas fa-database d-lg-none"></i> <Link to={"/blocks/"+tx.height}>{numbro(tx.height).format("0,0")}</Link></Col>:''}
         <Col xs={(!props.blockList)?{size:4,order:"first"}:{size:12,order:"first"}} md={(!props.blockList)?{size:3, order: "first"}:{size:7, order: "first"}} lg={(!props.blockList)?{size:1,order:"first"}:{size:2,order:"first"}} className="text-truncate"><i className="fas fa-hashtag d-lg-none"></i> <Link to={"/transactions/"+tx.txhash}>{tx.txhash}</Link></Col>
-        {(!props.blockList)?<Col xs={2} md={2} className="text-nowrap"><span>{tx.block()?<TimeAgo time={tx.block().time} />:''}</span></Col>:''}
-
+        {(!props.blockList)?<Col xs={2} md={2}><span>{tx.block()?moment.utc(tx.block().time).format("D MMM YYYY, h:mm:ssa"):''}</span></Col>:''}
+                                            {/* className="text-nowrap"                   <TimeAgo time={tx.block().time} /> */}
         {(tx.code)?<Col xs={{size:12, order:"last"}} className="error">
             <Alert color="danger">
                 <ColorErrors 

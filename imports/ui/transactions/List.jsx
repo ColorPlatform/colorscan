@@ -51,7 +51,7 @@ export default class Transactions extends Component{
                     <Col xs={2} md={2}><i className="fas fa-database"></i> <span className="d-none d-md-inline-block"><T>common.height</T></span></Col>
                     {/* <Col xs={9} lg={6}><i className="material-icons">message</i> <span className="d-none d-md-inline-block"><T>transactions.activities</T></span></Col> */}
                     <Col xs={3} lg={{size:1,order:"first"}}><i className="fas fa-hashtag"></i> <span className="d-none d-md-inline-block"><T>transactions.txHash</T></span></Col>
-                    <Col xs={2} md={2}><i className="material-icons">schedule</i> <span className="d-none d-md-inline-block"><T>Time</T></span></Col>
+                    <Col xs={2} md={2}><i className="material-icons">schedule</i> <span className="d-none d-md-inline-block"><T>Time (UTC)</T></span></Col>
                 </Row>
                 {this.state.txs}
             </div>
