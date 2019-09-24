@@ -39,7 +39,7 @@ export default class Coin {
 	}
 
 	get stakingAmount () {
-		return this._amount / Coin.StakingFraction;
+		return this._amount;
 	}
 
 	toString (precision) {
@@ -48,7 +48,7 @@ export default class Coin {
 		if (this.amount < minStake) {
 			return `${numbro(this.amount).format('0,0')} ${Coin.MintingDenom}`;
 		} else {
-			return `${precision?numbro(this.stakingAmount).format('0,0.' + '0'.repeat(precision)):autoformat(this.stakingAmount)} ${Coin.StakingDenom.toUpperCase()}`
+			return `${precision?numbro(this.stakingAmount).format('0,0.' + '0'.repeat(precision)):autoformat(this.stakingAmount)} ${Coin.MintingDenom}`
 		}
 	}
 
@@ -65,6 +65,6 @@ export default class Coin {
 		if (formatter) {
 			amount = numbro(amount).format(formatter)
 		}
-		return `${amount} ${Coin.StakingDenom.toUpperCase()}`;
+		return `${amount} ${Coin.MintingDenom}`;
 	}
 }

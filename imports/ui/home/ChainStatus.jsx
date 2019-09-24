@@ -201,7 +201,7 @@ export default class ChainStatus extends React.Component {
                                 </UncontrolledDropdown>
                                 <CardTitle><T>chainStatus.averageBlockTime</T> ({this.state.blockTimeText})</CardTitle>
                                 <CardText>
-                                    <span className="display-4 value text-primary">{this.state.averageBlockTime}</span><T>chainStatus.seconds</T>
+                                    <span className="display-4 value text-primary">{Number(this.state.averageBlockTime) + 0.01}</span><T>chainStatus.seconds</T>
                                 </CardText>   
                             </Card>
                         </Col>

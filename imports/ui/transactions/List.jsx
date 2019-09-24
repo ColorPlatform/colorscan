@@ -44,14 +44,14 @@ export default class Transactions extends Component{
         else{
             return <div className="transactions-list">
                 <Row className="header text-nowrap d-none d-lg-flex">
-                    <Col xs={2} md={2}><i className="material-icons">merge_type</i> <span className="d-none d-md-inline-block"><T>Type</T></span></Col>
-                    <Col className="resultpaddingleft" xs={1} md={1}><i className="material-icons">check_circle</i> <span className="d-none d-lg-inline-block"><T>Result</T></span></Col>
-                    <Col xs={2} md={2}><i className="material-icons">attach_money</i> <span className="d-none d-md-inline-block"><T>Amount</T></span></Col>
+                    <Col xs={2} md={2}><i className="material-icons">merge_type</i> <span className="d-none d-md-inline-block"><T>transactions.type</T></span></Col>
+                    <Col className="resultpaddingleft" xs={1} md={1}><i className="material-icons">check_circle</i> <span className="d-none d-lg-inline-block"><T>transactions.result</T></span></Col>
+                    <Col xs={2} md={2}><i className="material-icons">attach_money</i> <span className="d-none d-md-inline-block"><T>transactions.amount</T></span></Col>
                     <Col xs={2} md={2}><i className="material-icons">monetization_on</i> <span className="d-none d-md-inline-block"><T>transactions.fee</T></span></Col>
                     <Col xs={2} md={2}><i className="fas fa-database"></i> <span className="d-none d-md-inline-block"><T>common.height</T></span></Col>
                     {/* <Col xs={9} lg={6}><i className="material-icons">message</i> <span className="d-none d-md-inline-block"><T>transactions.activities</T></span></Col> */}
                     <Col xs={3} lg={{size:1,order:"first"}}><i className="fas fa-hashtag"></i> <span className="d-none d-md-inline-block"><T>transactions.txHash</T></span></Col>
-                    <Col xs={2} md={2}><i className="material-icons">schedule</i> <span className="d-none d-md-inline-block"><T>Time (UTC)</T></span></Col>
+                    <Col xs={2} md={2}><i className="material-icons">schedule</i> <span className="d-none d-md-inline-block"><T>transactions.time</T></span></Col>
                 </Row>
                 {this.state.txs}
             </div>

@@ -14,7 +14,7 @@ MultiSend = (props) => {
             <ul>
                 {props.msg.value.inputs.map((data,i) =>{
                     return <li key={i}><Account address={data.address}/> <T>activities.sent</T> {data.coins.map((coin, j) =>{
-                        return <em key={j} className="text-success">{numbro(coin.amount).format("0,0")} {coin.denom}</em>
+                        return <em key={j} className="text-success">{numbro(coin.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</em>
                     })}
                     </li>
                 })}
@@ -23,7 +23,7 @@ MultiSend = (props) => {
             <ul>
                 {props.msg.value.outputs.map((data,i) =>{
                     return <li key={i}><Account address={data.address}/> <T>activities.received</T> {data.coins.map((coin,j) =>{
-                        return <em key={j} className="text-success">{numbro(coin.amount).format("0,0")} {coin.denom}</em>
+                        return <em key={j} className="text-success">{numbro(coin.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</em>
                     })}</li>
                 })}
             </ul>
@@ -45,10 +45,10 @@ export default class TransactionActivities extends Component {
             let amount = '';
             for (let a in msg.value.amount){
                 if (a > 0){
-                    amount += ', '+numbro(msg.value.amount[a].amount).format("0,0")+" "+msg.value.amount[a].denom;
+                    amount += ', '+numbro(msg.value.amount[a].amount/Meteor.settings.public.stakingFraction).format("0,0")+" "+Meteor.settings.public.stakingDenom;
                 }
                 else{
-                    amount += numbro(msg.value.amount[a].amount).format("0,0")+" "+msg.value.amount[a].denom;
+                    amount += numbro(msg.value.amount[a].amount/Meteor.settings.public.stakingFraction).format("0,0")+" "+Meteor.settings.public.stakingDenom;
                 }
             }
             return <p><Account address={msg.value.from_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-success">{amount}</em> <T>activities.to</T> <span className="address"><Account address={msg.value.to_address} /></span><T>common.fullStop</T></p>
@@ -61,11 +61,11 @@ export default class TransactionActivities extends Component {
         case "cosmos-sdk/MsgEditValidator":
             return <p><Account address={msg.value.address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /></p>
         case "cosmos-sdk/MsgDelegate":
-            return <p><Account address={msg.value.delegator_address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-warning">{numbro(msg.value.amount.amount).format("0,0")} {msg.value.amount.denom}</em> <T>activities.to</T> <Account address={msg.value.validator_address} /><T>common.fullStop</T></p>
+            return <p><Account address={msg.value.delegator_address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-warning">{numbro(msg.value.amount.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</em> <T>activities.to</T> <Account address={msg.value.validator_address} /><T>common.fullStop</T></p>
         case "cosmos-sdk/MsgUndelegate":
-            return <p><Account address={msg.value.delegator_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-warning">{numbro(msg.value.amount.amount).format("0,0")} {msg.value.amount.denom}</em> <T>activities.from</T> <Account address={msg.value.validator_address} /><T>common.fullStop</T></p>
+            return <p><Account address={msg.value.delegator_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-warning">{numbro(msg.value.amount.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</em> <T>activities.from</T> <Account address={msg.value.validator_address} /><T>common.fullStop</T></p>
         case "cosmos-sdk/MsgBeginRedelegate":
-            return <p><Account address={msg.value.delegator_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-warning">{numbro(msg.value.amount.amount).format("0,0")} {msg.value.amount.denom}</em> <T>activities.from</T> <Account address={msg.value.validator_src_address} /> <T>activities.to</T> <Account address={msg.value.validator_dst_address} /><T>common.fullStop</T></p>
+            return <p><Account address={msg.value.delegator_address} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-warning">{numbro(msg.value.amount.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</em> <T>activities.from</T> <Account address={msg.value.validator_src_address} /> <T>activities.to</T> <Account address={msg.value.validator_dst_address} /><T>common.fullStop</T></p>
             
             // gov
         case "cosmos-sdk/MsgSubmitProposal":
@@ -73,10 +73,10 @@ export default class TransactionActivities extends Component {
         case "cosmos-sdk/MsgDeposit":
             return <p><Account address={msg.value.depositor} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <em className="text-info">{msg.value.amount.map((amount,i) =>{
                 if (i>0){
-                    return " ,"+numbro(amount.amount).format("0,0")+" "+amount.denom;
+                    return " ,"+numbro(amount.amount/Meteor.settings.public.stakingFraction).format("0,0")+" "+Meteor.settings.public.stakingDenom;
                 }
                 else{
-                    return numbro(amount.amount).format("0,0")+" "+amount.denom;
+                    return numbro(amount.amount/Meteor.settings.public.stakingFraction).format("0,0")+" "+Meteor.settings.public.stakingDenom;
                 }
             })}</em> <T>activities.to</T> <Link to={"/proposals/"+msg.value.proposal_id}><T>proposals.proposal</T> {msg.value.proposal_id}</Link><T>common.fullStop</T></p>
         case "cosmos-sdk/MsgVote":

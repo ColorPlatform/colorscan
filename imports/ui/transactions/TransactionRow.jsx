@@ -18,7 +18,7 @@ export const TransactionRow = (props) => {
             return <p><ButtonActivities msg={msg} invalid={(!!tx.code)} tags={tx.tags} /></p>
         }):''}</Col>:''}
         
-        <Col className="resultpaddingleft" xs={(!props.blockList)?3:2} md={1}>{(!tx.code)?<TxIcon valid />:<TxIcon />}</Col>
+        <Col className="resultpaddingleft" xs={(!props.blockList)?3:3} md={1}>{(!tx.code)?<TxIcon valid />:<TxIcon />}</Col>
 
         {(!props.blockList)?<Col xs={3} md={2}>{(tx.tx.value.msg && tx.tx.value.msg.length >0)?tx.tx.value.msg.map((msg) => {
             return <Activities msg={msg} invalid={(!!tx.code)} tags={tx.tags} />

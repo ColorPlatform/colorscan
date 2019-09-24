@@ -66,7 +66,7 @@ analytics:
     noOfValidators: 'No. of Validators'
 validators:
     randomValidators: 'Random Validators'
-    moniker: 'Moniker'
+    moniker: 'Node Name'
     uptime: 'Uptime'
     selfPercentage: 'Self%'
     commission: 'Commission'
@@ -108,6 +108,8 @@ validators:
     lastSyncTime: 'Last sync time'
     delegator: 'Delegator'
     amount: 'Amount'
+    blocks: 'blocks'
+    precommits : 'precommits'
 blocks:
     block: 'Block'
     proposer: 'Proposer'
@@ -124,6 +126,10 @@ transactions:
     txHash: 'Tx Hash'
     valid: 'Valid'
     fee: 'Fee'
+    amount: 'Amount'
+    type: 'Type'
+    time: 'Time (UTC)'
+    result: 'Result'
     gasUsedWanted: 'Gas (used / wanted)'
     noTxFound: 'No such transaction found.'
     noValidatorTxsFound: 'No transaction related to this validator was found.'
