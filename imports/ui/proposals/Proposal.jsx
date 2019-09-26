@@ -297,7 +297,7 @@ export default class Proposal extends Component{
                                             return <li key={i}>
                                                 <Account address={deposit.depositor} />
                                                 {deposit.amount.map((amount, j) => {
-                                                    return <div key={j}>{numbro(amount.amount).format("0,0")} {amount.denom}</div>
+                                                    return <div key={j}>{numbro(amount.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</div>
                                                 })}
                                             </li>
                                         }):''}

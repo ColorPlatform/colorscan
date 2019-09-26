@@ -155,7 +155,7 @@ export default class AccountDetails extends Component{
                             <Row className="account-distributions">
                                 <Col xs={12}>
                                     <Progress multi>
-                                        <Progress bar className="available" value={this.state.available/this.state.total*100} />
+                                        <Progress bar className="available" value={this.state.available/this.state.total*100}/>
                                         <Progress bar className="delegated" value={this.state.delegated/this.state.total*100} />
                                         <Progress bar className="unbonding" value={this.state.unbonding/this.state.total*100} />
                                         <Progress bar className="rewards" value={this.state.rewards/this.state.total*100} />
@@ -166,19 +166,19 @@ export default class AccountDetails extends Component{
                                 <Col md={6} lg={8}>
                                     <Row>
                                         <Col xs={4} className="label text-nowrap"><div className="available infinity" /><T>accounts.available</T></Col>
-                                        <Col xs={8} className="value text-right">{numbro(this.state.available/Meteor.settings.public.stakingFraction).format("0,0.0000")}</Col>
+                                        <Col xs={8} className="value text-right">{numbro(this.state.available/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</Col>
                                     </Row>
                                     <Row>
                                         <Col xs={4} className="label text-nowrap"><div className="delegated infinity" /><T>accounts.delegated</T></Col>
-                                        <Col xs={8} className="value text-right">{numbro(this.state.delegated/Meteor.settings.public.stakingFraction).format("0,0.0000")}</Col>
+                                        <Col xs={8} className="value text-right">{numbro(this.state.delegated/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</Col>
                                     </Row>
                                     <Row>
                                         <Col xs={4} className="label text-nowrap"><div className="unbonding infinity" /><T>accounts.unbonding</T></Col>
-                                        <Col xs={8} className="value text-right">{numbro(this.state.unbonding/Meteor.settings.public.stakingFraction).format("0,0.0000")}</Col>
+                                        <Col xs={8} className="value text-right">{numbro(this.state.unbonding/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</Col>
                                     </Row>
                                     <Row>
                                         <Col xs={4} className="label text-nowrap"><div className="rewards infinity" /><T>accounts.rewards</T></Col>
-                                        <Col xs={8} className="value text-right">{numbro(this.state.rewards/Meteor.settings.public.stakingFraction).format("0,0.0000")}</Col>
+                                        <Col xs={8} className="value text-right">{numbro(this.state.rewards/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</Col>
                                     </Row>
                                 </Col>
                                 <Col md={6} lg={4} className="total d-flex flex-column justify-content-end">

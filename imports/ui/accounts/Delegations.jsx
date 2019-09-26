@@ -38,7 +38,7 @@ export default class AccountDelegations extends Component{
                         delegations: delegations.map((d, i) => {
                             return <Row key={i} className="delegation-info">
                                 <Col xs={6} md={8} className="text-nowrap overflow-auto"><Account address={d.validator_address} /></Col>
-                                <Col xs={6} md={4}>{numbro(d.shares).format("0,0")}</Col>
+                                <Col xs={6} md={4}>{numbro(d.shares/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</Col>
                             </Row>
                         })
                     })
