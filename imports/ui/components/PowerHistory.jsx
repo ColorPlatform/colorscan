@@ -43,7 +43,7 @@ export default class PowerHistory extends React.Component {
                                         <Col xs={12}>
                                             <Row>
                                                 <Col xs={4}><T>validators.amount</T></Col>
-                                                <Col xs={8}>{numbro(m.value.amount.amount).format('0,0')} {m.value.amount.denom}</Col>
+                                                <Col xs={8}>{numbro(m.value.amount.amount/Meteor.settings.public.stakingFraction).format('0,0')} {Meteor.settings.public.stakingDenom}</Col>
                                             </Row>
                                         </Col>
                                     </Row>
