@@ -1,5 +1,5 @@
 {
-  "name": "Color",
+  "name": "colorexplorer",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -22,7 +22,7 @@
     "fibers": "^3.1.1",
     "jquery": "^3.4.0",
     "js-sha256": "^0.9.0",
-    "ledger-cosmos-js": "git+https://github.com/cosmos/ledger-cosmos-js.git",
+    "ledger-cosmos-js": "git+https://github.com/ColorPlatform/ledger-color.git",
     "mdbreact": "^4.18.0",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.24.0",
