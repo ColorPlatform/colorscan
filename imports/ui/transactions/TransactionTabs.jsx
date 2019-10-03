@@ -3,6 +3,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Card, CardHeader,
 import classnames from 'classnames';
 import numbro from 'numbro';
 import { TransactionRow } from './TransactionRow.jsx';
+import { IndividualTransaction } from './IndividualTransaction.jsx'
 import i18n from 'meteor/universe:i18n';
 
 const T = i18n.createComponent();
@@ -90,12 +91,22 @@ export default class TransactionTabs extends Component{
                         <Row>
                             <Col>
                                 {(this.state.transferTxs.length > 0)?this.state.transferTxs.map((tx, i) => {
-                                    return <TransactionRow 
-                                        key={i} 
-                                        index={i} 
-                                        tx={tx}
-                                        blockList 
-                                    />
+                                    return (
+                                        <div>
+                                            <IndividualTransaction 
+                                            key={i} 
+                                            index={i} 
+                                            tx={tx}
+                                            blockList 
+                                            />
+                                            <TransactionRow 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx}
+                                                blockList 
+                                            />
+                                        </div>
+                                    )
                                 }):''}
                             </Col>
                         </Row>
@@ -104,12 +115,22 @@ export default class TransactionTabs extends Component{
                         <Row>
                             <Col>
                                 {(this.state.stakingTxs.length > 0)?this.state.stakingTxs.map((tx, i) => {
-                                    return <TransactionRow 
-                                        key={i} 
-                                        index={i} 
-                                        tx={tx} 
-                                        blockList
-                                    />
+                                    return (
+                                        <div>
+                                            <IndividualTransaction 
+                                            key={i} 
+                                            index={i} 
+                                            tx={tx} 
+                                            blockList
+                                        />
+                                        <TransactionRow 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx} 
+                                                blockList
+                                            />
+                                        </div>
+                                    )
                                 }):''}
                             </Col>
                         </Row>
@@ -118,12 +139,22 @@ export default class TransactionTabs extends Component{
                         <Row>
                             <Col>
                                 {(this.state.distributionTxs.length > 0)?this.state.distributionTxs.map((tx, i) => {
-                                    return <TransactionRow 
-                                        key={i} 
-                                        index={i} 
-                                        tx={tx} 
-                                        blockList
-                                    />
+                                    return (
+                                        <div>
+                                            <IndividualTransaction 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx} 
+                                                blockList
+                                            />
+                                            <TransactionRow 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx} 
+                                                blockList
+                                            />
+                                        </div>
+                                    )
                                 }):''}
                             </Col>
                         </Row>
@@ -132,12 +163,22 @@ export default class TransactionTabs extends Component{
                         <Row>
                             <Col>
                                 {(this.state.governanceTxs.length > 0)?this.state.governanceTxs.map((tx, i) => {
-                                    return <TransactionRow 
-                                        key={i} 
-                                        index={i} 
-                                        tx={tx} 
-                                        blockList
-                                    />
+                                    return (
+                                        <div>
+                                            <IndividualTransaction 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx} 
+                                                blockList
+                                            />
+                                            <TransactionRow 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx} 
+                                                blockList
+                                            />
+                                        </div>
+                                    )
                                 }):''}
                             </Col>
                         </Row>
@@ -146,12 +187,22 @@ export default class TransactionTabs extends Component{
                         <Row>
                             <Col>
                                 {(this.state.slashingTxs.length > 0)?this.state.slashingTxs.map((tx, i) => {
-                                    return <TransactionRow 
-                                        key={i} 
-                                        index={i} 
-                                        tx={tx} 
-                                        blockList
-                                    />
+                                    return (
+                                        <div>
+                                            <IndividualTransaction 
+                                            key={i} 
+                                            index={i} 
+                                            tx={tx} 
+                                            blockList
+                                            />
+                                            <TransactionRow 
+                                                key={i} 
+                                                index={i} 
+                                                tx={tx} 
+                                                blockList
+                                            />
+                                        </div>
+                                    )
                                 }):''}
                             </Col>
                         </Row>

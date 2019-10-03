@@ -26,7 +26,6 @@ export default class Transaction extends Component{
         }
         else{
             if (this.props.transactionExist){
-                // console.log(this.props.transaction);
                 let tx = this.props.transaction;
                 return <Container id="transaction" className="paddingleft">
                     <Helmet>
