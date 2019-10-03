@@ -156,9 +156,9 @@ export default class Validator extends Component{
                                     <Col sm={6} className="label"><T>validators.proposerPriority</T></Col>
                                     <Col sm={6} className="value">{this.props.validator.proposer_priority?numbro(this.props.validator.proposer_priority).format('0,0'):'N/A'}</Col>
                                     <Col sm={6} className="label"><T>validators.delegatorShares</T></Col>
-                                    <Col sm={6} className="value">{numbro(this.props.validator.delegator_shares/Meteor.settings.public.stakingFraction).format('0,0')} {Meteor.settings.public.stakingDenom}</Col>
+                                    <Col sm={6} className="value">{numbro(this.props.validator.delegator_shares/Meteor.settings.public.stakingFraction).format('0,0.00')} {Meteor.settings.public.stakingDenom}</Col>
                                     <Col sm={6} className="label"><T>validators.tokens</T></Col>
-                                    <Col sm={6} className="value">{numbro(this.props.validator.tokens/Meteor.settings.public.stakingFraction).format('0,0')} {Meteor.settings.public.stakingDenom}</Col>
+                                    <Col sm={6} className="value">{numbro(this.props.validator.tokens/Meteor.settings.public.stakingFraction).format('0,0.00')} {Meteor.settings.public.stakingDenom}</Col>
                                     {(this.props.validator.jailed)?<Col xs={12} >
                                         <Row><Col md={6} className="label"><T>validators.unbondingHeight</T></Col>
                                             <Col md={6} className="value">{numbro(this.props.validator.unbonding_height).format('0,0')}</Col>
@@ -173,7 +173,7 @@ export default class Validator extends Component{
                             <CardBody>
                                 <Row>
                                     <Col xs={8} className="label"><T numBlocks={Meteor.settings.public.uptimeWindow}>validators.lastNumBlocks</T></Col>
-                                    <Col xs={4} className="value text-right">{this.props.validator.uptime}%</Col>
+                                    <Col xs={4} className="value text-right">{numbro(this.props.validator.uptime).format('0.00')}%</Col>
                                     <Col md={12} className="blocks-list">{this.state.records}</Col>
                                 </Row>
                             </CardBody>
