@@ -411,6 +411,10 @@ div#countdown {
     padding-bottom: 0.2em;
 }
 
+.fee {
+    padding-left: 2rem !important
+}
+
 #account .infinity{
     display: inline-block;
     margin-right: 0.5em;
