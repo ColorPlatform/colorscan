@@ -82,7 +82,7 @@ export default class Block extends Component{
                 </Container>
             }
             else{
-                return <Container id="block" className="paddingleft"><div><T>block.notFound</T></div></Container>
+                return <Container id="block" className="paddingleft"><div><T>blocks.notFound</T></div></Container>
             }
         }
     }
