@@ -144,8 +144,8 @@ export default class AccountDetails extends Component{
                     <meta name="description" content={"Account Details of "+this.state.address+" on Color Explorer"} />
                 </Helmet>
                 <Row>
-                    <Col md={12} xs={12}><h1 className="d-none d-lg-block"><T>accounts.accountDetails</T></h1></Col>
-                    {/* <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col> */}
+                    <Col md={3} xs={12}><h1 className="d-none d-lg-block"><T>accounts.accountDetails</T></h1></Col>
+                    <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col>
                 </Row>
                 <h3 className="text-primary"><AccountCopy address={this.state.address} /></h3>
                 <Row>
@@ -224,6 +224,15 @@ export default class AccountDetails extends Component{
                         </NavIcon>
                         <NavText>
                             Validators
+                        </NavText>
+                        
+                    </NavItem>
+                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-flag" style={{ fontSize: '1.5em', color: 'black' }} />
+                        </NavIcon>
+                        <NavText>
+                            Leagues
                         </NavText>
                         
                     </NavItem>

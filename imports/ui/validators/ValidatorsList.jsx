@@ -13,12 +13,13 @@ const T = i18n.createComponent();
 
 const PriorityEnum = {
     'moniker': {code: 0, dirKey: 'monikerDir', name: 'moniker'},
-    'votingPower': {code: 1, dirKey: 'votingPowerDir', name: 'votingPower'},
-    'uptime': {code: 2, dirKey: 'uptimeDir', name: 'uptime'},
-    'commission': {code: 3, dirKey: 'commissionDir', name: 'commission'},
-    'selfDel': {code: 4, dirKey: 'selfDelDir', name: 'selfDel'},
-    'status': {code: 5, dirKey: 'statusDir', name: 'status'},
-    'jailed': {code: 6, dirKey: 'jailedDir', name: 'jailed'}
+    'league': {code: 1, dirKey: 'leagueDir', name: 'league'},
+    'votingPower': {code: 2, dirKey: 'votingPowerDir', name: 'votingPower'},
+    'uptime': {code: 3, dirKey: 'uptimeDir', name: 'uptime'},
+    'commission': {code: 4, dirKey: 'commissionDir', name: 'commission'},
+    'selfDel': {code: 5, dirKey: 'selfDelDir', name: 'selfDel'},
+    'status': {code: 6, dirKey: 'statusDir', name: 'status'},
+    'jailed': {code: 7, dirKey: 'jailedDir', name: 'jailed'}
 }
 
 const renderToggleIcon = (order) =>
@@ -29,6 +30,7 @@ export default class Validators extends Component{
         super(props);
         let state = {
             monikerDir: 1,
+            leagueDir: 1,
             votingPowerDir: -1,
             uptimeDir: -1,
             commissionDir: 1,
@@ -101,8 +103,8 @@ export default class Validators extends Component{
                 <meta name="description" content="Here is a list of Color Validators" />
             </Helmet>
             <Row>
-                <Col lg={12} xs={12}><h1 className="d-none d-lg-block">{title}</h1></Col>
-                {/* <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col> */}
+                <Col lg={3} xs={12}><h1 className="d-none d-lg-block">{title}</h1></Col>
+                <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col>
             </Row>
             <Nav pills className="status-switch">
                 <NavItem>
@@ -122,10 +124,11 @@ export default class Validators extends Component{
                         <Row className="header text-nowrap">
                             <Col className="d-none d-md-block counter" md={1}>&nbsp;</Col>
                             <Col className="moniker" md={2} onClick={(e) => this.toggleDir('moniker',e)}><i className="material-icons">perm_contact_calendar</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.moniker</T></span> {renderToggleIcon(this.state.monikerDir)} </Col>
+                            <Col className="league" md={1} onClick={(e) => this.toggleDir('league',e)}><i className="material-icons">flag</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.league</T></span> {renderToggleIcon(this.state.leagueDir==1)} </Col>
                             <Col className="voting-power" md={3} lg={2} onClick={(e) => this.toggleDir('votingPower',e)}><i className="material-icons">power</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>common.votingPower</T></span> {renderToggleIcon(this.state.votingPowerDir)} </Col>
                             <Col className="self-delegation" md={2} onClick={(e) => this.toggleDir('selfDel',e)}><i className="material-icons">equalizer</i> <span className="d-md-none d-lg-inline-block"><T>validators.selfPercentage</T></span> {renderToggleIcon(this.state.selfDelDir==1)} </Col>
                             {(!this.props.inactive)?<Col className="commission" md={1} lg={2} onClick={(e) => this.toggleDir('commission',e)}><i className="material-icons">call_split</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.commission</T></span> {renderToggleIcon(this.state.commissionDir==1)}</Col>:''}
-                            {(!this.props.inactive)?<Col className="uptime" md={2} lg={3} onClick={(e) => this.toggleDir('uptime',e)}><i className="material-icons">flash_on</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.uptime</T> ({Meteor.settings.public.uptimeWindow} <i className="fas fa-cube"></i>)</span> {renderToggleIcon(this.state.uptimeDir==1)}</Col>:''}
+                            {(!this.props.inactive)?<Col className="uptime" md={2} lg={2} onClick={(e) => this.toggleDir('uptime',e)}><i className="material-icons">flash_on</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>validators.uptime</T> ({Meteor.settings.public.uptimeWindow} <i className="fas fa-cube"></i>)</span> {renderToggleIcon(this.state.uptimeDir==1)}</Col>:''}
                             {(this.props.inactive)?<Col className="last-seen" md={2}><i className="far fa-clock"></i> <span className="d-md-none d-lg-inline-block"><T>validators.lastSeen</T> (UTC)</span></Col>:''}
                             {(this.props.inactive)?<Col className="bond-status d-none d-md-block" md={1} onClick={(e) => this.toggleDir('status',e)}><i className="material-icons">toggle_on</i> <span className="d-md-none d-lg-inline-block"><T>validators.status</T></span> {renderToggleIcon(this.state.statusDir)} </Col>:''}
                             {(this.props.inactive)?<Col className="jail-status d-none d-md-block" md={1} onClick={(e) => this.toggleDir('jailed',e)}><i className="material-icons">lock</i> <span className="d-md-none d-lg-inline-block"><T>validators.jailed</T></span> {renderToggleIcon(this.state.jailedDir)} </Col>:''}
@@ -134,6 +137,7 @@ export default class Validators extends Component{
                     {(this.props.inactive)?<List
                         inactive={this.props.inactive}
                         monikerDir={this.state.monikerDir}
+                        leagueDir={this.state.leagueDir}
                         votingPowerDir={this.state.votingPowerDir}
                         uptimeDir={this.state.uptimeDir}
                         commissionDir={this.state.commissionDir}
@@ -144,6 +148,7 @@ export default class Validators extends Component{
                         status={this.props.status}
                     />:<List
                         monikerDir={this.state.monikerDir}
+                        leagueDir={this.state.leagueDir}
                         votingPowerDir={this.state.votingPowerDir}
                         uptimeDir={this.state.uptimeDir}
                         commissionDir={this.state.commissionDir}
@@ -171,6 +176,15 @@ export default class Validators extends Component{
                         </NavIcon>
                         <NavText>
                             Validators
+                        </NavText>
+                        
+                    </NavItem>
+                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-flag" style={{ fontSize: '1.5em', color: 'black' }} />
+                        </NavIcon>
+                        <NavText>
+                            Leagues
                         </NavText>
                         
                     </NavItem>

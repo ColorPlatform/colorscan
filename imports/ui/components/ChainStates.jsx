@@ -17,7 +17,9 @@ export default class ChainStates extends Component{
                 data.communityPool = this.props.chainStates.communityPool.map((pool,i) => {
                     return <span key={i}>{numbro(pool.amount/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</span>
                 })
-                data.inflation = numbro(this.props.chainStates.inflation).format("0.00%")
+                // data.inflation = numbro(this.props.chainStates.inflation).format("0.00%")
+                data.deflation = numbro(this.props.chainStates.deflation).format("0.00%")
+                data.minting = <span>{numbro(this.props.chainStates.minting/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</span>
             }
     
             if (this.props.coinStats.usd){
@@ -31,7 +33,9 @@ export default class ChainStates extends Component{
             this.state = {
                 price: "$-",
                 marketCap: "$-",
-                inflation: 0,
+                // inflation: 0,
+                deflation: 0,
+                minting: 0,
                 communityPool: 0
             }
         }
@@ -44,7 +48,9 @@ export default class ChainStates extends Component{
                     communityPool: this.props.chainStates.communityPool.map((pool,i) => {
                         return <span key={i}>{numbro(pool.amount/Meteor.settings.public.stakingFraction).format("0,0.00")} {Meteor.settings.public.stakingDenom}</span>
                     }),
-                    inflation: numbro(this.props.chainStates.inflation).format("0.00%")
+                    // inflation: numbro(this.props.chainStates.inflation).format("0.00%")
+                    deflation: numbro(this.props.chainStates.deflation).format("0.00%"),
+                    minting: numbro(this.props.chainStates.minting/Meteor.settings.public.stakingFraction).format("0,0.00 ") + Meteor.settings.public.stakingDenom
                 })
             }
         }
@@ -62,9 +68,11 @@ export default class ChainStates extends Component{
         return <Card className="d-lg-inline-block color">
             <CardHeader>
                 <Row className="white">
-                    <Col xs={4} md="auto"><small><span><T>chainStates.price</T>:</span> <strong>{this.state.price}</strong></small></Col>
-                    <Col xs={8} md="auto"><small><span><T>chainStates.marketCap</T>:</span> <strong>{this.state.marketCap}</strong></small></Col>
-                    <Col xs={4} md="auto"><small><span><T>chainStates.inflation</T>:</span> <strong>{this.state.inflation}</strong></small></Col>
+                    {/* <Col xs={4} md="auto"><small><span><T>chainStates.price</T>:</span> <strong>{this.state.price}</strong></small></Col> */}
+                    {/* <Col xs={8} md="auto"><small><span><T>chainStates.marketCap</T>:</span> <strong>{this.state.marketCap}</strong></small></Col> */}
+                    {/* <Col xs={4} md="auto"><small><span><T>chainStates.inflation</T>:</span> <strong>{this.state.inflation}</strong></small></Col> */}
+                    <Col xs={4} md="auto"><small><span><T>chainStates.minting</T>:</span> <strong>{this.state.minting}</strong>/sec</small></Col>
+                    <Col xs={4} md="auto"><small><span><T>chainStates.deflation</T>:</span> <strong>{this.state.deflation}</strong></small></Col>
                     <Col xs={8} md="auto"><small><span><T>chainStates.communityPool</T>:</span> <strong>{this.state.communityPool}</strong></small></Col>
                 </Row>
             </CardHeader>

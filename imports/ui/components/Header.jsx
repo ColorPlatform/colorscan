@@ -25,6 +25,12 @@ export default class Header extends Component {
         });
     }
 
+    toggleClose = () => {
+        this.setState({
+          isOpen: false
+        });
+      };
+
   handleLanguageSwitch = (lang, e) => {
       i18n.setLocale(lang)
   }
@@ -75,21 +81,38 @@ export default class Header extends Component {
               <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto text-nowrap" navbar>
                       <NavItem id="toggle" className="toggle">
-                          <NavLink className={window.location.pathname.split('/')[1]===""?'iss-active':null} to="/"><T>Dashboard</T></NavLink>
+                          <NavLink onClick={() => {
+                              this.toggleClose();
+                            }} className={window.location.pathname.split('/')[1]===""?'iss-active':null} to="/"><T>Dashboard</T></NavLink>
                       </NavItem>
-                      <NavItem id="toggle" className="toggle">
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="validator" || window.location.pathname.split('/')[1]==="validators" || window.location.pathname.split('/')[1]==="account"?'iss-active':null} to="/validators"><T>navbar.validators</T></NavLink>
                       </NavItem>
-                      <NavItem id="toggle" className="toggle">
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="leagues" ?'iss-active':null} to="/leagues"><T>navbar.leagues</T></NavLink>
+                      </NavItem>
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="blocks"?'iss-active':null} to="/blocks"><T>navbar.blocks</T></NavLink>
                       </NavItem>
-                      <NavItem id="toggle" className="toggle">
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="transactions"?'iss-active':null} to="/transactions"><T>navbar.transactions</T></NavLink>
                       </NavItem>
-                      <NavItem id="toggle" className="toggle">
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="proposals"?'iss-active':null} to="/proposals"><T>navbar.proposals</T></NavLink>
                       </NavItem>
-                      <NavItem id="toggle" className="toggle">
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="voting-power-distribution"?'iss-active':null} to="/voting-power-distribution"><T>navbar.votingPower</T></NavLink>
                       </NavItem>
                       {/* <NavItem>

@@ -25,6 +25,7 @@ navbar:
     version: 'beta'
     validators: 'Validators'
     blocks: 'Blocks'
+    leagues: 'Leagues'
     transactions: 'Transactions'
     proposals: 'Proposals'
     votingPower: 'Voting Power'
@@ -42,6 +43,8 @@ chainStates:
     price: 'Price'
     marketCap: 'Market Cap'
     inflation: 'Inflation'
+    deflation: 'Deflation'
+    minting: 'Minting Speed'
     communityPool: 'Community Pool'
 chainStatus:
     startMessage: 'The chain is going to start in'
@@ -67,6 +70,7 @@ analytics:
 validators:
     randomValidators: 'Random Validators'
     moniker: 'Node Name'
+    league: 'League'
     uptime: 'Uptime'
     selfPercentage: 'Self%'
     commission: 'Commission'
@@ -110,6 +114,10 @@ validators:
     amount: 'Amount'
     blocks: 'blocks'
     precommits : 'precommits'
+    noOfValidators: 'No. of Nodes'
+leagues:
+    leagues: 'Leagues'
+    listOfLeagues: 'Here is a list of Leagues'
 blocks:
     block: 'Block'
     proposer: 'Proposer'

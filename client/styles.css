@@ -30,6 +30,10 @@ i.material-icons + span {
     display: inline-block;
 }
 
+.material-icons {
+    cursor: pointer;
+}
+
 .copy-button{
     cursor: pointer;
 }
@@ -328,7 +332,6 @@ div#countdown {
     width: 100%;
 }
 
-
 .proposal .tally-result-table .moniker.data{
     white-space: nowrap;
     overflow: hidden;
@@ -413,6 +416,10 @@ div#countdown {
 
 .fee {
     padding-left: 2rem !important
+}
+
+.individualleague {
+    display: flex
 }
 
 #account .infinity{
@@ -590,6 +597,9 @@ div#voting-power-dist .card{
 }
 
 @media only screen and (max-width: 767px){
+    .individualleague {
+        display: block
+    }
     div#main, div#transaction, div#block{
         padding-bottom: 4.85rem;
     }
@@ -610,7 +620,7 @@ div#voting-power-dist .card{
     }
 
     .mobile-menu li{
-        width: 16.66%;
+        width: 14.28%;
     }
 
     .mobile-menu li a{

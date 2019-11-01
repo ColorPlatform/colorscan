@@ -109,8 +109,8 @@ export default class Transactions extends Component{
                 <meta name="description" content="See what is happening Color" />
             </Helmet>
             <Row>
-                <Col md={12} xs={12}><h1 className="d-none d-lg-block"><T>transactions.transactions</T></h1></Col>
-                {/* <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col> */}
+                <Col md={3} xs={12}><h1 className="d-none d-lg-block"><T>transactions.transactions</T></h1></Col>
+                <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col>
             </Row>
             <Switch>
                 <Route path="/transactions/:txId" render={(props)=> <Sidebar 
@@ -149,6 +149,15 @@ export default class Transactions extends Component{
                         </NavIcon>
                         <NavText>
                             Validators
+                        </NavText>
+                        
+                    </NavItem>
+                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-flag" style={{ fontSize: '1.5em', color: 'black' }} />
+                        </NavIcon>
+                        <NavText>
+                            Leagues
                         </NavText>
                         
                     </NavItem>

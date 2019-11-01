@@ -36,8 +36,8 @@ export default class ValidatorDetails extends Component{
                         padding: '15px 20px 0 20px'
                     }}>
             <Row>
-                <Col lg={12} xs={12}><h1 className="d-none d-lg-block"><h1 className="d-none d-lg-block"></h1><T>validators.validatorDetails</T></h1></Col>
-                {/* <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col> */}
+                <Col lg={3} xs={12}><h1 className="d-none d-lg-block"><h1 className="d-none d-lg-block"></h1><T>validators.validatorDetails</T></h1></Col>
+                <Col lg={9} xs={12} className="text-lg-right"><ChainStates /></Col>
             </Row>
             <Row>
                 <Col md={12}>
@@ -67,6 +67,15 @@ export default class ValidatorDetails extends Component{
                         </NavIcon>
                         <NavText>
                             Validators
+                        </NavText>
+                        
+                    </NavItem>
+                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-flag" style={{ fontSize: '1.5em', color: 'black' }} />
+                        </NavIcon>
+                        <NavText>
+                            Leagues
                         </NavText>
                         
                     </NavItem>

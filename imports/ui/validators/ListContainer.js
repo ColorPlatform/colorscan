@@ -40,6 +40,7 @@ export default ValidatorListContainer = withTracker((props) => {
             sort:{
                 "description.moniker": props.monikerDir,
                 "commission.rate": props.commissionDir,
+                "league": props.leagueDir,
                 uptime: props.uptimeDir,
                 voting_power: props.votingPowerDir,
                 self_delegation: props.selfDelDir
@@ -49,6 +50,7 @@ export default ValidatorListContainer = withTracker((props) => {
     case 1:
         options = {
             sort:{
+                "league": props.leagueDir,
                 voting_power: props.votingPowerDir,
                 "description.moniker": props.monikerDir,
                 uptime: props.uptimeDir,
@@ -60,51 +62,68 @@ export default ValidatorListContainer = withTracker((props) => {
     case 2:
         options = {
             sort:{
-                uptime: props.uptimeDir,
-                "description.moniker": props.monikerDir,
                 voting_power: props.votingPowerDir,
+                "description.moniker": props.monikerDir,
+                "league": props.leagueDir,
+                uptime: props.uptimeDir,
                 "commission.rate": props.commissionDir,
-                self_delegation: props.selfDelDir,
+                self_delegation: props.selfDelDir
             }
         }
         break;
     case 3:
         options = {
             sort:{
-                "commission.rate": props.commissionDir,
-                "description.moniker": props.monikerDir,
-                voting_power: props.votingPowerDir,
                 uptime: props.uptimeDir,
-                self_delegation: props.selfDelDir
+                "description.moniker": props.monikerDir,
+                "league": props.leagueDir,
+                voting_power: props.votingPowerDir,
+                "commission.rate": props.commissionDir,
+                self_delegation: props.selfDelDir,
             }
         }
         break;
     case 4:
         options = {
             sort:{
-                self_delegation: props.selfDelDir,
-                "description.moniker": props.monikerDir,
                 "commission.rate": props.commissionDir,
+                "description.moniker": props.monikerDir,
+                "league": props.leagueDir,
                 voting_power: props.votingPowerDir,
                 uptime: props.uptimeDir,
+                self_delegation: props.selfDelDir
             }
         }
         break;
     case 5:
         options = {
             sort:{
-                status: props.statusDir,
-                jailed: props.jailedDir,
+                self_delegation: props.selfDelDir,
                 "description.moniker": props.monikerDir,
+                "league": props.leagueDir,
+                "commission.rate": props.commissionDir,
+                voting_power: props.votingPowerDir,
+                uptime: props.uptimeDir,
             }
         }
         break;
     case 6:
         options = {
             sort:{
+                status: props.statusDir,
+                jailed: props.jailedDir,
+                "description.moniker": props.monikerDir,
+                "league": props.leagueDir,
+            }
+        }
+        break;
+    case 7:
+        options = {
+            sort:{
                 jailed: props.jailedDir,
                 status: props.statusDir,
                 "description.moniker": props.monikerDir,
+                "league": props.leagueDir,
             }
         }
         break;

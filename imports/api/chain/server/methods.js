@@ -112,6 +112,30 @@ Meteor.methods({
                     console.log(e);
                 }
 
+                url = LCD + '/minting/deflation';
+                try{
+                    response = HTTP.get(url);
+                    let deflation = JSON.parse(response.content);
+                    if (deflation){
+                        chainStates.deflation = parseFloat(deflation)
+                    }
+                }
+                catch(e){
+                    console.log(e);
+                }
+
+                url = LCD + '/minting/minting-speed';
+                try{
+                    response = HTTP.get(url);
+                    let minting = JSON.parse(response.content);
+                    if (minting){
+                        chainStates.minting = parseFloat(minting)
+                    }
+                }
+                catch(e){
+                    console.log(e);
+                }
+
                 url = LCD + '/minting/annual-provisions';
                 try{
                     response = HTTP.get(url);

@@ -348,6 +348,7 @@ Meteor.methods({
                                             validator.status = validatorSet[val].status;
                                             validator.min_self_delegation = validatorSet[val].min_self_delegation;
                                             validator.tokens = validatorSet[val].tokens;
+                                            validator.league = validatorSet[val].league;
                                             validator.delegator_shares = validatorSet[val].delegator_shares;
                                             validator.description = validatorSet[val].description;
                                             validator.bond_height = validatorSet[val].bond_height;
@@ -383,6 +384,7 @@ Meteor.methods({
                                             validator.jailed = validatorSet[val].jailed;
                                             validator.status = validatorSet[val].status;
                                             validator.tokens = validatorSet[val].tokens;
+                                            validator.league = validatorSet[val].league;
                                             validator.delegator_shares = validatorSet[val].delegator_shares;
                                             validator.description = validatorSet[val].description;
                                             validator.bond_height = validatorSet[val].bond_height;

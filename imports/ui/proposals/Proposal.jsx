@@ -310,7 +310,7 @@ export default class Proposal extends Component{
                             <Col md={9} className="value">
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="yes" /> Yes</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.yes).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.yes/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(1,e)}><i className="material-icons">{this.state.open === 1 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(1, 'Yes')}
@@ -318,7 +318,7 @@ export default class Proposal extends Component{
                                 </Row>
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="abstain" /> Abstain</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.abstain).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.abstain/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(2,e)}><i className="material-icons">{this.state.open === 2 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(2, 'Abstain')}
@@ -326,7 +326,7 @@ export default class Proposal extends Component{
                                 </Row>
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="no" /> No</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(3,e)}><i className="material-icons">{this.state.open === 3 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(3, 'No')}
@@ -334,7 +334,7 @@ export default class Proposal extends Component{
                                 </Row>
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="no_with_veto" /> No with Veto</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no_with_veto).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no_with_veto/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(4,e)}><i className="material-icons">{this.state.open === 4 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(4, 'NoWithVeto')}
@@ -373,7 +373,7 @@ export default class Proposal extends Component{
                                         <Card body className="tally-info">
                                             <em>
                                                 <T _purify={false} percent={numbro(this.state.totalVotes/totalVotingPower).format("0.00%")}>proposals.percentageVoted</T><br/>
-                                                {this.state.proposalValid?<T _props={{className:'text-success'}} tentative={(!this.state.voteEnded)?'(tentatively) ':''}_purify={false}>proposals.validMessage</T>:(this.state.voteEnded)?<T _props={{className:'text-danger'}} quorum={numbro(this.props.chain.gov.tallyParams.quorum).format("0.00%")} _purify={false}>proposals.invalidMessage</T>:<T moreVotes={numbro(totalVotingPower*this.props.chain.gov.tallyParams.quorum-this.state.totalVotes).format("0,0")} _purify={false}>proposals.moreVoteMessage</T>}
+                                                {this.state.proposalValid?<T _props={{className:'text-success'}} tentative={(!this.state.voteEnded)?'(tentatively) ':''}_purify={false}>proposals.validMessage</T>:(this.state.voteEnded)?<T _props={{className:'text-danger'}} quorum={numbro(this.props.chain.gov.tallyParams.quorum).format("0.00%")} _purify={false}>proposals.invalidMessage</T>:<T moreVotes={numbro((totalVotingPower*this.props.chain.gov.tallyParams.quorum-this.state.totalVotes)/Meteor.settings.public.stakingFraction).format("0,0")} _purify={false}>proposals.moreVoteMessage</T>}
                                             </em>
                                         </Card>
                                     </Col>

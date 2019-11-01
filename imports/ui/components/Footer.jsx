@@ -35,6 +35,9 @@ export default class Footer extends React.Component {
                             <NavLink className={window.location.pathname.split('/')[1]==="validator" || window.location.pathname.split('/')[1]==="validators" || window.location.pathname.split('/')[1]==="account"?'is-active':null} to="/validators"><i className="fa fa-fw fa-spinner" /></NavLink>
                         </NavItem>
                         <NavItem>
+                            <NavLink className={window.location.pathname.split('/')[1]==="leagues" ?'is-active':null} to="/leagues"><i className="fa fa-fw fa-flag" /></NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink className={window.location.pathname.split('/')[1]==="blocks"?'is-active':null} to="/blocks"><i className="fa fa-fw fa-cube" /></NavLink>
                         </NavItem>
                         <NavItem>
