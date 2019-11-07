@@ -118,6 +118,7 @@ validators:
 leagues:
     leagues: 'Leagues'
     listOfLeagues: 'Here is a list of Leagues'
+    leagueDetails: 'League Details'
 blocks:
     block: 'Block'
     proposer: 'Proposer'

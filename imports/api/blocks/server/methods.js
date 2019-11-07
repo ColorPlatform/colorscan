@@ -298,7 +298,15 @@ Meteor.methods({
                             let dateLatest = blockData.time;
                             let dateLast = new Date(lastSyncedTime);
                             timeDiff = Math.abs(dateLatest.getTime() - dateLast.getTime());
-                            blockTime = (chainStatus.blockTime * (blockData.height - 1) + timeDiff) / blockData.height;
+                            //blockTime = (chainStatus.blockTime * (blockData.height - 1) + timeDiff) / blockData.height;
+                            if (timeDiff < chainStatus.blockTime)
+                            {
+
+                                blockTime = timeDiff
+                                
+                            }else{
+                                blockTime = chainStatus.blockTime
+                            }
                         }
 
                         let endGetValidatorsTime = new Date();

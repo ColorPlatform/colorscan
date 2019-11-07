@@ -35,7 +35,7 @@ export default class Proposal extends Component{
             yesPercent: 0,
             abstainPercent: 0,
             noPercent: 0,
-            noWithVetoPercent: 0,
+            // noWithVetoPercent: 0,
             proposalValid: false,
             orderDir: -1,
             breakDownSelection: 'Bar'
@@ -77,7 +77,7 @@ export default class Proposal extends Component{
                             yesPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.yes)/totalVotes*100:0,
                             abstainPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.abstain)/totalVotes*100:0,
                             noPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no)/totalVotes*100:0,
-                            noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no_with_veto)/totalVotes*100:0,
+                            // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no_with_veto)/totalVotes*100:0,
                             proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
                         })
                     }
@@ -96,7 +96,7 @@ export default class Proposal extends Component{
                             yesPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.yes)/totalVotes*100:0,
                             abstainPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.abstain)/totalVotes*100:0,
                             noPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.no)/totalVotes*100:0,
-                            noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.no_with_veto)/totalVotes*100:0,
+                            // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.no_with_veto)/totalVotes*100:0,
                             proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
                         })
                     }
@@ -121,14 +121,14 @@ export default class Proposal extends Component{
     }
 
     populateChartData() {
-        const optionOrder = {'Yes': 0, 'Abstain': 1, 'No': 2, 'NoWithVeto': 3};
+        const optionOrder = {'Yes': 0, 'Abstain': 1, 'No': 2};
         let votes = this.props.proposal.votes.sort(
             (vote1, vote2) => vote2['votingPower'] - vote1['votingPower']
         ).sort(
             (vote1, vote2) => optionOrder[vote1.option] - optionOrder[vote2.option]);
         let maxVotingPower = {'N/A': 1};
         let totalVotingPower = {'N/A': 0};
-        let votesByOptions = {'All': votes, 'Yes': [], 'Abstain': [], 'No': [], 'NoWithVeto': []};
+        let votesByOptions = {'All': votes, 'Yes': [], 'Abstain': [], 'No': []};
 
         let emtpyData = [{'votingPower': 1, option: 'N/A'}];
         votes.forEach((vote) => votesByOptions[vote.option].push(vote));
@@ -149,7 +149,7 @@ export default class Proposal extends Component{
         let scales = [{
             scaleId: 'colorScale',
             type: 'Color',
-            domain: ['Yes', 'Abstain', 'No', 'NoWithVeto', 'N/A'],
+            domain: ['Yes', 'Abstain', 'No', 'N/A'],
             range: ['#4CAF50', '#ff9800', '#e51c23', '#9C27B0', '#BDBDBD']
         }];
         let isDataEmtpy = votesByOptions[this.state.breakDownSelection].length==0;
@@ -332,19 +332,19 @@ export default class Proposal extends Component{
                                         {this.renderTallyResultDetail(3, 'No')}
                                     </Col>
                                 </Row>
-                                <Row>
+                                {/* <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="no_with_veto" /> No with Veto</Col>
                                     <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no_with_veto/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(4,e)}><i className="material-icons">{this.state.open === 4 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(4, 'NoWithVeto')}
                                     </Col>
-                                </Row>
+                                </Row> */}
                                 {this.state.voteStarted?<Row>
                                     <Col xs={12}><Card>
                                         <CardHeader>
                                             <Nav tabs className='card-header-tabs'>
-                                                {['Bar', 'All', 'Yes', 'Abstain', 'No', 'NoWithVeto'].map((option)=>
+                                                {['Bar', 'All', 'Yes', 'Abstain', 'No'].map((option)=>
                                                     <NavItem key={option}><NavLink className='no-select' active={this.state.breakDownSelection==option}
                                                         onClick={() => this.setState({breakDownSelection: option})}>
                                                         {option=='Bar'?'All(Bar)':option}
@@ -359,7 +359,7 @@ export default class Proposal extends Component{
                                                         <Progress bar animated color="success" value={this.state.yesPercent}><T>proposals.yes</T> {numbro(this.state.yesPercent).format("0.00")}%</Progress>
                                                         <Progress bar animated color="warning" value={this.state.abstainPercent}><T>proposals.abstain</T> {numbro(this.state.abstainPercent).format("0.00")}%</Progress>
                                                         <Progress bar animated color="danger" value={this.state.noPercent}><T>proposals.no</T> {numbro(this.state.noPercent).format("0.00")}%</Progress>
-                                                        <Progress bar animated color="info" value={this.state.noWithVetoPercent}><T>proposals.noWithVeto</T> {numbro(this.state.noWithVetoPercent).format("0.00")}%</Progress>
+                                                        {/* <Progress bar animated color="info" value={this.state.noWithVetoPercent}><T>proposals.noWithVeto</T> {numbro(this.state.noWithVetoPercent).format("0.00")}%</Progress> */}
                                                     </Progress>
                                                 </TabPane>
                                                 <TabPane tabId="pie">

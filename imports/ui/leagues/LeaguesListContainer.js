@@ -15,7 +15,6 @@ export default ValidatorListContainer = withTracker((props) => {
         loading = !validatorsHandle.ready() && !chainHandle.ready();    
     }
     let validatorsCond = {};
-    // console.log(props);
     if (props.inactive){
         validatorsCond = {
             $or: [
@@ -33,7 +32,6 @@ export default ValidatorListContainer = withTracker((props) => {
 
     let options = {};
 
-    // console.log(validatorsCond);
     switch(props.priority){
     case 0:
         options = {
@@ -74,7 +72,6 @@ export default ValidatorListContainer = withTracker((props) => {
         }
         
     }
-    // console.log(props.state.limit);
     return {
         loading,
         validatorsExist,

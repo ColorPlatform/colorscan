@@ -11,8 +11,9 @@ import Validators from '/imports/ui/validators/ValidatorsList.jsx';
 import Account from '/imports/ui/accounts/Account.jsx';
 import BlocksTable from '/imports/ui/blocks/BlocksTable.jsx';
 import Proposals from '/imports/ui/proposals/Proposals.jsx';
-import Leagues from '/imports/ui/validators/Leagues.jsx';
+import Leagues from '/imports/ui/leagues/Leagues.jsx';
 import ValidatorDetails from '/imports/ui/validators/ValidatorDetails.jsx';
+import LeagueDetails from '/imports/ui/leagues/LeagueDetails.jsx';
 import Transactions from '/imports/ui/transactions/TransactionsList.jsx';
 import Distribution from '/imports/ui/voting-power/Distribution.jsx';
 import SearchBar from '/imports/ui/components/SearchBar.jsx';
@@ -89,6 +90,7 @@ class App extends Component {
                                 <Route path="/(validator|validators)" component={ValidatorDetails} />
                                 <Route path="/proposals" component={Proposals} />
                                 <Route path="/leagues" exact component={Leagues} />
+                                <Route path="/leagues/:address" component={LeagueDetails} />
                                 <Route component={NotFound} />
                             </Switch>
                         </SentryBoundary>

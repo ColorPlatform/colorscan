@@ -19,8 +19,8 @@
     },
     "genesisFile": "https://rpc.testnet.color-platform.org/genesis",
     "remote":{
-        "rpc":"https://rpc.testnet.color-platform.org/",
-        "lcd":"https://lcd.testnet.color-platform.org/"
+        "rpc":"https://rpc.testnet.color-platform.org",
+        "lcd":"https://lcd.testnet.color-platform.org"
     },
     "debug": {
         "startTimer": true,

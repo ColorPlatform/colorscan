@@ -51,7 +51,7 @@ Meteor.methods({
     },
     'proposals.getProposalResults': function(){
         this.unblock();
-        let proposals = Proposals.find({"proposal_status":{$nin:["Passed", "Rejected", "Removed"]}}).fetch();
+        let proposals = Proposals.find({"proposal_status":{$in:["Passed", "Rejected", "Removed","VotingPeriod"]}}).fetch();
 
         if (proposals && (proposals.length > 0)){
             for (let i in proposals){

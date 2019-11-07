@@ -3,7 +3,7 @@ import { Badge, Progress, Row, Col, Card, Spinner } from "reactstrap";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { Meteor } from "meteor/meteor";
-import Validator from "./Validator.jsx";
+// import Validator from "./Validator.jsx";
 import i18n from 'meteor/universe:i18n';
 import numbro from "numbro";
 import posed from "react-pose";
@@ -27,7 +27,7 @@ const ValidatorRow = props => {
           {props.index + 1}
         </Col>
         <Col className="league data" xs={3} md={2}>
-            <span className="d-md-inline">League{props.validator.league}</span>
+            <span className="d-md-inline"><Link to={"/leagues/"+props.validator.league}>League{props.validator.league}</Link></span>
         </Col>
         <Col className="league data" xs={2} md={2}>
             {count[props.validator.league]}
