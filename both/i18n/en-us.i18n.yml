@@ -148,6 +148,11 @@ transactions:
     distribution: 'Distribution'
     governance: 'Governance'
     slashing: 'Slashing'
+fundingcycles: 
+    fundingcycles: 'Funding Cycles'
+    cycleID: 'Cycle ID'
+    cycleStartTime: 'Cycle Start Time'
+    cycleEndTime: 'Cycle End Time'
 proposals:
     notFound: 'No proposal found.'
     listOfProposals: 'Here is a list of governance proposals.'
@@ -162,6 +167,8 @@ proposals:
     votingStartTime: 'Voting Start Time'
     votingEndTime: 'End Voting Time'
     totalDeposit: 'Total Deposit'
+    fundingCycle: 'Funding Cycle'
+    requestedFund: 'Requested Fund'
     description: 'Description'
     proposalType: 'Proposal Type'
     proposalStatus: 'Proposal Status'

@@ -552,6 +552,14 @@ div.transactions-list div.header{
     width: 100%;
 }
 
+.fundingcycle {
+    text-align: center;
+}
+
+.counter {
+    text-align: center;
+}
+
 .power-history .voting-power {
     font-size: 160%;
     position: relative;

@@ -230,6 +230,15 @@ export default class Leagues extends Component {
               </NavIcon>
               <NavText>Proposals</NavText>
             </NavItem>
+            <NavItem eventKey="fundingcycles" onClick={ e => this.props.history.push("/fundingcycles") } title="Funding Cycles">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-bullseye" style={{ fontSize: '1.5em', color: 'black' }} />
+                        </NavIcon>
+                        <NavText>
+                            Funding Cycles
+                        </NavText>
+                        
+                    </NavItem>
             <NavItem
               eventKey="voting-power-distribution"
               onClick={e =>

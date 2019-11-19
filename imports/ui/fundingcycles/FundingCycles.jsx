@@ -1,45 +1,31 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
-import ChainStatus from './ChainStatusContainer.js';
-import Consensus from './ConsensusContainer.js';
-import TopValidators from './TopValidatorsContainer.js';
-// import Chart from './ChartContainer.js';
+import { Badge, Row, Col } from 'reactstrap';
+import { Route, Switch } from 'react-router-dom';
+import List from './ListContainer.js';
 import ChainStates from '../components/ChainStatesContainer.js'
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
+import i18n from 'meteor/universe:i18n';
 import SideNav, { NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import PieChart from './PieChart.js';
 
-export default class Home extends Component{
+const T = i18n.createComponent();
+
+const FundingCyclesList = () => {
+    return <div>
+        <Row>
+            <Col md={12}>
+                <List />
+            </Col>
+        </Row>
+    </div>
+}
+export default class FundingCycles extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            chainStopped: false            
-        }
     };
     state = {
-        selected: 'dashboard',
+        selected: 'fundingcycles',
         expanded: false
-    };
-
-    componentDidUpdate(prevProps){
-        if (prevProps.consensus != this.props.consensus){
-            if (this.props.consensus.latestBlockTime){
-                let lastSync = moment(this.props.consensus.latestBlockTime);
-                let current = moment();
-                let diff = current.diff(lastSync);
-                if (diff > 60000){
-                    this.setState({
-                        chainStopped:true
-                    })
-                }
-                else{
-                    this.setState({
-                        chainStopped:false
-                    })
-                }
-            }
-        }
     };
 
     onSelect = (selected) => {
@@ -49,48 +35,30 @@ export default class Home extends Component{
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
     };
-    
+
     render() {
         const { expanded, selected } = this.state;
         return (
         <div>
-            <div id="home" style={{
-                        marginLeft: expanded ? 200 : 64,
-                        padding: '15px 20px 0 20px'
-                    }}>
+            <div id="fundingcycles" style={{
+                            marginLeft: expanded ? 200 : 64,
+                            padding: '15px 20px 0 20px'
+                        }}>
             <Helmet>
-                <title>Color | Explorer</title>
-                <meta name="description" content="Color is a decentralized network of independent parallel blockchains, each powered by BFT consensus algorithms like Prism consensus." />
+                <title>Funding Cycles on Color Explorer | Color</title>
+                <meta name="description" content="Color Explorer incorporates on-chain governance. Come to see how on-chain governance can be achieved on Color Explorer." />
             </Helmet>
             <Row>
-                <Col md={3} xs={12}><h1 className="d-none d-lg-block">{Meteor.settings.public.chainName}</h1></Col>
+                <Col md={3} xs={12}><h1 className="d-none d-lg-block"><T>fundingcycles.fundingcycles</T></h1></Col>
                 <Col md={9} xs={12} className="text-md-right"><ChainStates /></Col>
             </Row>
-            {(this.state.chainStopped)?<Card body inverse color="danger">
-                            <span><T _purify={false} time={moment(this.props.consensus.latestBlockTime).fromNow(true)}>chainStatus.stopWarning</T></span>             
-                        </Card>:''}
-            <Row>
-                <Col md={6}>
-                    <ChainStatus />
-                </Col>
-                <Col md={6}>
-                    <br></br>
-                    <Consensus />
-                </Col>
-            </Row>
-            <Row>
-                <Col md={6}>
-                    <TopValidators />
-                </Col>
-                <Col md={6}>
-                    <PieChart />
-                </Col>
-            </Row>
-
-            </div>
-            <SideNav className="sidenav position-fixed" onSelect={this.onSelect} onToggle={this.onToggle}>
+            <Switch>
+                <Route exact path="/fundingcycles" component={FundingCyclesList} />
+            </Switch>
+        </div>
+        <SideNav className="sidenav position-fixed" onSelect={this.onSelect} onToggle={this.onToggle}>
                 <SideNav.Toggle />
-                <SideNav.Nav selected={selected} defaultSelected="dashboard">
+                <SideNav.Nav selected={selected} defaultSelected="fundingcycles">
                     <NavItem eventKey="dashboard" onClick={ e => this.props.history.push("/") } title="Dashboard">
                         <NavIcon>
                             <i className="fa fa-fw fa-home" style={{ fontSize: '1.5em', color: 'black' }} />
@@ -98,6 +66,7 @@ export default class Home extends Component{
                         <NavText>
                             Dashboard
                         </NavText>
+                        
                     </NavItem>
                     <NavItem eventKey="validators" onClick={ e => this.props.history.push("/validators") } title="Validators">
                         <NavIcon>
@@ -106,6 +75,7 @@ export default class Home extends Component{
                         <NavText>
                             Validators
                         </NavText>
+                        
                     </NavItem>
                     <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
                         <NavIcon>
@@ -123,6 +93,7 @@ export default class Home extends Component{
                         <NavText>
                             Blocks
                         </NavText>
+                        
                     </NavItem>
                     <NavItem eventKey="transactions" onClick={ e => this.props.history.push("/transactions") } title="Transactions">
                         <NavIcon>
@@ -131,6 +102,7 @@ export default class Home extends Component{
                         <NavText>
                             Transactions
                         </NavText>
+                        
                     </NavItem>
                     <NavItem eventKey="proposals" onClick={ e => this.props.history.push("/proposals") } title="Proposals">
                         <NavIcon>
@@ -139,6 +111,7 @@ export default class Home extends Component{
                         <NavText>
                             Proposals
                         </NavText>
+                        
                     </NavItem>
                     <NavItem eventKey="fundingcycles" onClick={ e => this.props.history.push("/fundingcycles") } title="Funding Cycles">
                         <NavIcon>
@@ -160,7 +133,7 @@ export default class Home extends Component{
                 </SideNav.Nav>
             </SideNav>
             </div>
-        )
+            )
     }
 
 }

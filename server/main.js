@@ -52,10 +52,21 @@ getConsensusState = () => {
 getProposals = () => {
     Meteor.call('proposals.getProposals', (error, result) => {
         if (error){
-            console.log("get porposal: "+ error);
+            console.log("get proposal: "+ error);
         }
         if (result){
             console.log("get proposal: "+result);
+        }
+    });
+}
+
+getFundingCycles = () => {
+    Meteor.call('FundingCycles.getFundingCycles', (error, result) => {
+        if (error){
+            console.log("get Funding Cycle: "+ error);
+        }
+        if (result){
+            console.log("get Funding Cycle: "+result);
         }
     });
 }
@@ -175,6 +186,10 @@ Meteor.startup(function(){
                 timerProposal = Meteor.setInterval(function(){
                     getProposals();
                 }, Meteor.settings.params.proposalInterval);
+
+                timerFundingCycle = Meteor.setInterval(function(){
+                    getFundingCycles();
+                }, Meteor.settings.params.fundingCycleInterval);
 
                 timerProposalsResults = Meteor.setInterval(function(){
                     getProposalsResults();

@@ -28,6 +28,7 @@ export default class Proposal extends Component{
         this.state = {
             proposal: '',
             deposit: '',
+            requestedFund: '',
             tallyDate: <T>proposals.notStarted</T>,
             voteStarted: false,
             totalVotes: 0,
@@ -53,7 +54,10 @@ export default class Proposal extends Component{
                 proposal: this.props.proposal,
                 deposit: <div>{this.props.proposal.total_deposit?this.props.proposal.total_deposit.map((deposit, i) => {
                     return <div key={i}>{numbro(deposit.amount/Meteor.settings.public.stakingFraction).format(0,0)} {Meteor.settings.public.stakingDenom}</div>
-                }):''} </div>
+                }):'0 CLR'} </div>,
+                requestedFund: <div>{this.props.proposal.proposal_content.value.requested_fund?this.props.proposal.proposal_content.value.requested_fund.map((deposit, i) => {
+                    return <div key={i}>{numbro(deposit.amount/Meteor.settings.public.stakingFraction).format(0,0)} {Meteor.settings.public.stakingDenom}</div>
+                }):'0 CLR'} </div>
             });
 
             let now = moment();
@@ -285,6 +289,14 @@ export default class Proposal extends Component{
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.proposalStatus</T></Col>
                             <Col md={9} className="value"><ProposalStatusIcon status={this.props.proposal.proposal_status} /> {(this.props.proposal.proposal_status)?this.props.proposal.proposal_status.match(/[A-Z]+[^A-Z]*|[^A-Z]+/g).join(" "):''}</Col>
+                        </Row>
+                        <Row className="mb-2 border-top">
+                            <Col md={3} className="label"><T>proposals.fundingCycle</T></Col>
+                            <Col md={9} className="value">{this.props.proposal.proposal_content.value.funding_cycle?this.props.proposal.proposal_content.value.funding_cycle:'0'}</Col>
+                        </Row>
+                        <Row className="mb-2 border-top">
+                            <Col md={3} className="label"><T>proposals.requestedFund</T></Col>
+                            <Col md={9} className="value">{this.state.requestedFund}</Col>
                         </Row>
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.deposit</T></Col>

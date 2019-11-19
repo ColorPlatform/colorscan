@@ -1,5 +1,6 @@
 import { Blockscon } from '../../api/blocks/blocks.js';
 import { Proposals } from '../../api/proposals/proposals.js';
+import { FundingCycless } from '../../api/fundingcycles/fundingcycles.js';
 import { ValidatorRecords, Analytics, MissedBlocksStats, AverageData, AverageValidatorData } from '../../api/records/records.js';
 // import { Status } from '../../api/status/status.js';
 import { Transactions } from '../../api/transactions/transactions.js';
@@ -18,6 +19,8 @@ Blockscon.rawCollection().createIndex({proposerAddress:1});
 Evidences.rawCollection().createIndex({height: -1});
 
 Proposals.rawCollection().createIndex({proposalId: 1}, {unique:true});
+
+FundingCycless.rawCollection().createIndex({cycleId: 1}, {unique:true});
 
 ValidatorRecords.rawCollection().createIndex({address:1,height: -1}, {unique:1});
 

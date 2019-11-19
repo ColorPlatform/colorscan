@@ -11,6 +11,7 @@ import Validators from '/imports/ui/validators/ValidatorsList.jsx';
 import Account from '/imports/ui/accounts/Account.jsx';
 import BlocksTable from '/imports/ui/blocks/BlocksTable.jsx';
 import Proposals from '/imports/ui/proposals/Proposals.jsx';
+import FundingCycles from '/imports/ui/fundingcycles/FundingCycles.jsx';
 import Leagues from '/imports/ui/leagues/Leagues.jsx';
 import ValidatorDetails from '/imports/ui/validators/ValidatorDetails.jsx';
 import LeagueDetails from '/imports/ui/leagues/LeagueDetails.jsx';
@@ -89,6 +90,7 @@ class App extends Component {
                                 <Route path="/voting-power-distribution" component={Distribution} />
                                 <Route path="/(validator|validators)" component={ValidatorDetails} />
                                 <Route path="/proposals" component={Proposals} />
+                                <Route path="/fundingcycles" component={FundingCycles} />
                                 <Route path="/leagues" exact component={Leagues} />
                                 <Route path="/leagues/:address" component={LeagueDetails} />
                                 <Route component={NotFound} />
