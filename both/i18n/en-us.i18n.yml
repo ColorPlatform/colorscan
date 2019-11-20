@@ -50,7 +50,7 @@ chainStatus:
     startMessage: 'The chain is going to start in'
     stopWarning: 'The chain appears to be stopped for <em>{$time}</em>! Feed me with new blocks 😭!'
     latestHeight: 'Latest Block Height'
-    averageBlockTime: 'Average Block Time'
+    averageBlockTime: 'Best Block Time'
     all: 'All'
     now: 'Now'
     allTime: 'All Time'
@@ -64,7 +64,7 @@ chainStatus:
     fromTotalStakes: '{$percent} from {$totalStakes} {$denom}'
 analytics:
     blockTimeHistory: 'Block Time History'
-    averageBlockTime: 'Average Block Time'
+    averageBlockTime: 'Best Block Time'
     blockInterval: 'Block Interval'
     noOfValidators: 'No. of Validators'
 validators:
@@ -157,6 +157,7 @@ proposals:
     notFound: 'No proposal found.'
     listOfProposals: 'Here is a list of governance proposals.'
     proposer: 'Proposer'
+    rank: 'Rank'
     proposal: 'proposal'
     proposals: 'Proposals'
     proposalID: 'Proposal ID'

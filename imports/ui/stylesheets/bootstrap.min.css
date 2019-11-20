@@ -7083,7 +7083,7 @@
     .sidenav---sidenav---_2tBP {
         display: none
     }
-    #home , #validator-list , #blockstable , #transactions , #proposals , #voting-power-dist , #account , #validatordetails {
+    #home , #validator-list , #blockstable , #transactions , #proposals ,#fundingcycles , #voting-power-dist , #account , #validatordetails {
         margin-left: 0 !important;
         padding: 0 !important
     }
@@ -11105,6 +11105,32 @@
  .proposal-table table th,td {
      width: 16%
  }
+
+ .fundingcycles-table table th:first-child {
+    width: 3%
+ }
+ .fundingcycles-table table th,td:nth-child(2) {
+    width: 5%
+ }
+ .fundingcycles-table table th,td:nth-child(3) {
+    width: 5%
+ }
+ .fundingcycles-table table th.td:nth-child(4) {
+    width: 87%
+ }
+ .fundingcycles-table ::-webkit-scrollbar{
+    width: 12px;
+ }
+ .fundingcycles-table ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+ }
+ 
+ .fundingcycles-table  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+ }
+
  .proposal-table ::-webkit-scrollbar{
     width: 12px;
  }

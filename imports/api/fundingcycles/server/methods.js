@@ -19,7 +19,7 @@ Meteor.methods({
                 for (let i in FundingCycles){
                     let FundingCycle = FundingCycles[i];
                     FundingCycle.cycleId = parseInt(FundingCycle.cycle_id);
-                    if (FundingCycle.cycleId > 0){
+                    if (FundingCycle.cycleId >= 0){
                         try{
                             let url = LCD + '/gov/fundingcycles/'+FundingCycle.cycleId;
                             let response = HTTP.get(url);

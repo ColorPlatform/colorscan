@@ -113,6 +113,11 @@ export default class Header extends Component {
                       <NavItem onClick={() => {
                               this.toggleClose();
                             }} id="toggle" className="toggle">
+                          <NavLink className={window.location.pathname.split('/')[1]==="fundingcycles"?'iss-active':null} to="/fundingcycles"><T>fundingcycles.fundingcycles</T></NavLink>
+                      </NavItem>
+                      <NavItem onClick={() => {
+                              this.toggleClose();
+                            }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="voting-power-distribution"?'iss-active':null} to="/voting-power-distribution"><T>navbar.votingPower</T></NavLink>
                       </NavItem>
                       {/* <NavItem>

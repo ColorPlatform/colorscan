@@ -13,6 +13,7 @@ timerBlocks = 0;
 timerChain = 0;
 timerConsensus = 0;
 timerProposal = 0;
+timerFundingCycle = 0;
 timerProposalsResults = 0;
 timerMissedBlock = 0;
 timerDelegation = 0;

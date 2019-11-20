@@ -47,6 +47,9 @@ export default class Footer extends React.Component {
                             <NavLink className={window.location.pathname.split('/')[1]==="proposals"?'is-active':null} to="/proposals"><i className="fa fa-fw fa-edit" /></NavLink>
                         </NavItem>
                         <NavItem>
+                            <NavLink className={window.location.pathname.split('/')[1]==="fundingcycles"?'is-active':null} to="/fundingcycles"><i className="fa fa-fw fa-bullseye" /></NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink className={window.location.pathname.split('/')[1]==="voting-power-distribution"?'is-active':null} to="/voting-power-distribution"><i className="fa fa-fw fa-chart-bar" /></NavLink>
                         </NavItem>
                     </Nav>

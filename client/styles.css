@@ -165,6 +165,13 @@ div#block-table,
     margin-top: 2.5em;
 }
 
+#fundingcycles-table {
+    margin-top: 2.5em;
+}
+
+.cycleID {
+    padding-left: 3rem !important;
+}
 table#block-table,
 table.random-validators,
 table.validator-list,
@@ -628,7 +635,7 @@ div#voting-power-dist .card{
     }
 
     .mobile-menu li{
-        width: 14.28%;
+        width: 12.5%;
     }
 
     .mobile-menu li a{
