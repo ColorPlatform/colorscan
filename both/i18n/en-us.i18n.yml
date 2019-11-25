@@ -153,6 +153,7 @@ fundingcycles:
     cycleID: 'Cycle ID'
     cycleStartTime: 'Cycle Start Time'
     cycleEndTime: 'Cycle End Time'
+    fundedproposals: 'Funded Proposals'
 proposals:
     notFound: 'No proposal found.'
     listOfProposals: 'Here is a list of governance proposals.'

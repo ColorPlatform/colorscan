@@ -268,7 +268,7 @@ export default class Proposal extends Component{
                         </Row>
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.rank</T></Col>
-                            <Col md={9} className="value">{this.props.proposal.rank?this.props.proposal.rank:'Not Eligible'}</Col>
+                            <Col md={9} className="value">{this.props.proposal.ranking>0?this.props.proposal.ranking:'Not Eligible'}</Col>
                         </Row>
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.proposer</T></Col>

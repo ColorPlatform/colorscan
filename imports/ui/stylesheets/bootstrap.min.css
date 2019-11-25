@@ -11116,7 +11116,10 @@
     width: 5%
  }
  .fundingcycles-table table th.td:nth-child(4) {
-    width: 87%
+    width: 5%
+ }
+ .fundingcycles-table table th.td:nth-child(5) {
+    width: 82%
  }
  .fundingcycles-table ::-webkit-scrollbar{
     width: 12px;

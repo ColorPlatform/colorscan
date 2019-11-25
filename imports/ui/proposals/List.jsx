@@ -13,7 +13,7 @@ const ProposalRow = (props) => {
         <th className="counter">{props.proposal.proposalId}</th>
         <td className="title"><Link to={"/proposals/"+props.proposal.proposalId}>{props.proposal.proposal_content.value.title}</Link></td>
         <td className="status"><ProposalStatusIcon status={props.proposal.proposal_status}/><span>{props.proposal.proposal_status.match(/[A-Z]+[^A-Z]*|[^A-Z]+/g).join(" ")}</span></td>
-        <td className="eligibility">{props.proposal.rank?props.proposal.rank:'Not Eligible'}</td>
+        <td className="eligibility">{props.proposal.ranking>0?props.proposal.ranking:'Not Eligible'}</td>
         <td className="submit-block">{moment.utc(props.proposal.submit_time).format("D MMM YYYY, h:mm:ssa")}</td>
         <td className="fundingcycle">{props.proposal.proposal_content.value.funding_cycle?props.proposal.proposal_content.value.funding_cycle:'0'}</td>
         <td className="deposit">{props.proposal.proposal_content.value.requested_fund?props.proposal.proposal_content.value.requested_fund.map((deposit, i) => {
@@ -69,8 +69,8 @@ export default class List extends Component{
                             <th className="title"><i className="fas fa-bars"></i><T>proposals.title</T></th>
                             <th className="status"><i className="fas fa-toggle-on"></i><T>proposals.status</T></th>
                             <th className="rank"><i className="fas fa-bolt"></i><T>proposals.rank</T></th>
-                            <th className="submit-block"><i className="fas fa-box"></i><T>proposals.submitTime</T> (UTC)</th>
-                            <th className="voting-start"><i className="fas fa-box-open"></i><T>proposals.fundingCycle</T></th>
+                            <th className="submit-block"><i className="far fa-clock"></i><T>proposals.submitTime</T> (UTC)</th>
+                            <th className="voting-start"><i className="fa fa-fw fa-bullseye"></i><T>proposals.fundingCycle</T></th>
                             <th className="deposit"><i className="fas fa-dollar-sign"></i><T>proposals.requestedFund</T></th>
                         </tr>
                     </thead>
