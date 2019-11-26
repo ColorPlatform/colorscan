@@ -426,7 +426,8 @@ div#countdown {
 }
 
 .individualleague {
-    display: flex
+    display: flex;
+    align-items: baseline;
 }
 
 #account .infinity{
@@ -875,4 +876,29 @@ div#voting-power-dist .card{
   left: 0;
   border-width: 0.4rem 0 0.4rem 0.4rem;
   border-left-color: #444;
+}
+
+
+/* Styles */
+/* .collapse:not(.show) {
+    display: block !important;
+} */
+
+.navbar-collapse{
+    display: none !important;
+}
+.fundingcycles-table thead{
+ display: block;
+}
+.fundingtbody{
+    display: grid;
+}
+.trbg{
+    background: #fff !important;
+}
+.trpadding{
+    display: inline-block;
+    padding: 15px;
+    width: 100%;
+    margin: 5px;
 }
