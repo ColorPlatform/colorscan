@@ -17,10 +17,10 @@
         "stakingFraction": 1000000,
         "coingeckoId": "colorplatform"
     },
-    "genesisFile": "https://rpc.testnet.color-platform.rnssol.com/genesis",
+    "genesisFile": "https://rpc.testnet.color-platform.org/genesis",
     "remote":{
-        "rpc":"https://rpc.testnet.color-platform.rnssol.com",
-        "lcd":"https://lcd.testnet.color-platform.rnssol.com"
+        "rpc":"https://rpc.testnet.color-platform.org",
+        "lcd":"https://lcd.testnet.color-platform.org"
     },
     "debug": {
         "startTimer": true,

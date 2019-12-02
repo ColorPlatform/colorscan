@@ -1,0 +1,77 @@
+{
+  "format": "web-program-pre1",
+  "manifest": [
+    {
+      "path": "0230e074edd4b5963a8446d863c62dea779efd4e.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/0230e074edd4b5963a8446d863c62dea779efd4e.js?meteor_js_resource=true",
+      "size": 2792695,
+      "hash": "0230e074edd4b5963a8446d863c62dea779efd4e",
+      "sri": "U9S2WlFHWimRqZmcAvmuF7wVGutiDePc+6rSL3cldN2rL7bnUaEO8JDR7p0N9u9d1sCkmyLhkEd7102qER6PhA=="
+    },
+    {
+      "path": "0230e074edd4b5963a8446d863c62dea779efd4e.stats.json",
+      "where": "client",
+      "type": "json",
+      "cacheable": true,
+      "url": "/0230e074edd4b5963a8446d863c62dea779efd4e.stats.json?meteor_js_resource=true",
+      "size": 49147,
+      "hash": "de35bfcd4aa84f1ce40fb333b6524834ac72fb42",
+      "sri": "cNFxW6XkPRkpAv0UC37hs6KPzvY5M+62fmz3/5NRA7V6fJkVmIaCxYA0FOqeEXOPPI17YewoGLo3X5UBZDEZiA=="
+    },
+    {
+      "path": "63dc5e2bafdee74322519ad6d12495048d9222dd.css",
+      "where": "client",
+      "type": "css",
+      "cacheable": true,
+      "url": "/63dc5e2bafdee74322519ad6d12495048d9222dd.css?meteor_css_resource=true",
+      "size": 12399,
+      "hash": "63dc5e2bafdee74322519ad6d12495048d9222dd",
+      "sri": "vXS4NNReDe3TeiClVuTtxvzADHzgqVSy5w8lXF5qbW5I2vj8ZjtAtflnoPj4quV1DvKeHIlyi1R88Lllg1x7jg=="
+    },
+    {
+      "path": "app/img/Colorblackplatform.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/Colorblackplatform.png",
+      "size": 51279,
+      "hash": "97f34c4dd909b4ccaef02ddd5a5d230a49e2e536",
+      "sri": null
+    },
+    {
+      "path": "app/img/color-platform_white.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/color-platform_white.svg",
+      "size": 6838,
+      "hash": "02883cfae4af6386b04c2eaf6c807d6b30c27aff",
+      "sri": null
+    },
+    {
+      "path": "app/img/favicon.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/favicon.png",
+      "size": 13531,
+      "hash": "eefcbd7fa36dacb0672235418326e7417b8d8ac6",
+      "sri": null
+    },
+    {
+      "path": "head.html",
+      "where": "internal",
+      "type": "head",
+      "hash": "a5bba469febd339f7a95814f46a05baa38a7823b"
+    },
+    {
+      "path": "body.html",
+      "where": "internal",
+      "type": "body",
+      "hash": "1b433f33b806b0ddfe84c13b41b6b68881ee49ec"
+    }
+  ]
+}
