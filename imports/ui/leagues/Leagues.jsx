@@ -109,6 +109,9 @@ export default class Leagues extends Component {
             <Col md={12}>
               <Card body>
                 <Row className="header text-nowrap">
+                  <Col md={1}>
+                    &nbsp;
+                  </Col>
                   <Col className="d-none d-md-block counter" md={1}>
                     &nbsp;
                   </Col>
@@ -125,7 +128,7 @@ export default class Leagues extends Component {
                     {/* {renderToggleIcon(this.state.leagueDir==1)} */}
                   </Col>
                   <Col
-                    className="league"
+                    className="noOfValidators"
                     md={2}
                     onClick={(e) => this.toggleDir('noOfValidators',e)}
                   >
@@ -136,6 +139,16 @@ export default class Leagues extends Component {
                     {/* {renderToggleIcon(this.state.noOfValidatorsDir==1)} */}
                   </Col>
                   {/* <Col className="voting-power" md={3} lg={2} onClick={(e) => this.toggleDir('votingPower',e)}><i className="material-icons">power</i> <span className="d-inline-block d-md-none d-lg-inline-block"><T>common.votingPower</T></span> {renderToggleIcon(this.state.votingPowerDir)} </Col> */}
+                  <Col
+                    md={2}
+                    onClick={(e) => this.toggleDir('noOfValidators',e)}
+                  >
+                    <i className="material-icons">power</i>
+                    <span className="d-inline-block d-md-none d-lg-inline-block">
+                      <T>common.votingPower</T>
+                    </span>
+                    {/* {renderToggleIcon(this.state.noOfValidatorsDir==1)} */}
+                  </Col>
                 </Row>
               </Card>
               {

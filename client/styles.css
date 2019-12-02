@@ -514,6 +514,14 @@ div.transactions-list div.tx-info .activity .card-body ul {
     padding-left: 1em;
 }
 
+.iconsize {
+    font-size: 30px !important;
+}
+
+.noOfValidators {
+    text-align: center;
+}
+
 .error .alert .badge {
     white-space: inherit;
     text-align: left;
@@ -630,6 +638,9 @@ div#voting-power-dist .card{
         margin-bottom: 0.8rem;
     }
 
+    .noOfValidators {
+        text-align: inherit
+    }
 
     .proposal .tally-result-table .card.card-body{
         margin: 0.4rem 0.8rem;
@@ -778,6 +789,15 @@ div#voting-power-dist .card{
     }
 } */
 
+@media only screen and (max-width: 575px){
+    .fas,
+    .far{
+        padding: 0 20px 0 0;
+    }
+    .counter {
+        text-align: left;
+    }
+}
 @media only screen and (max-width: 420px){
     #network-nav{
         display: none
@@ -886,6 +906,9 @@ div#voting-power-dist .card{
 
 .navbar-collapse{
     display: none !important;
+}
+.fundingcycles {
+    margin-top: 2.5em
 }
 .fundingcycles-table thead{
  display: block;
