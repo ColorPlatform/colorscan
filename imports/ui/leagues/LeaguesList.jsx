@@ -1,13 +1,9 @@
-import React, { Component, useState } from "react";
-import { Badge, Progress, Row, Col, Card, Spinner } from "reactstrap";
+import React, { Component } from "react";
+import { Row, Col, Card, Spinner } from "reactstrap";
 import { Link } from "react-router-dom";
-import moment from "moment";
-import { Meteor } from "meteor/meteor";
-// import Validator from "./Validator.jsx";
 import i18n from 'meteor/universe:i18n';
 import numbro from "numbro";
 import posed from "react-pose";
-import Avatar from "../components/Avatar.jsx";
 
 const T = i18n.createComponent();
 
@@ -20,25 +16,36 @@ const ValidatorRow = props => {
  uniqueCount = [...props.validators];
  var  count = {};
  uniqueCount.forEach(function(i) { count[i.league] = (count[i.league]||0) + 1;});
-  return (
+ let sum = 0; 
+ return (
     <Card body>
       <Row className="validator-info">
+        <Col xs={1} onClick={() => props.toggle(props.index)}>
+          <i className="material-icons iconsize">
+            {props.index === props.toggleIndex && props.isOpen
+              ? "arrow_right"
+              : "arrow_drop_down"}
+          </i>
+        </Col>
         <Col className="d-none d-md-block counter data" xs={2} md={1}>
           {props.index + 1}
         </Col>
         <Col className="league data" xs={3} md={2}>
             <span className="d-md-inline"><Link to={"/leagues/"+props.validator.league}>League{props.validator.league}</Link></span>
         </Col>
-        <Col className="league data" xs={2} md={2}>
+        <Col className="noOfValidators data" xs={2} md={2}>
             {count[props.validator.league]}
         </Col>
-        <Col xs={1} onClick={() => props.toggle(props.index)}>
-          <i className="material-icons">
-            {props.index === props.toggleIndex && props.isOpen
-              ? "arrow_drop_down"
-              : "arrow_left"}
-          </i>
-        </Col>
+        <Col className="data" xs={2} md={2}>
+            {
+              props.validators.map((type,key)=>{
+                if(type.league===props.validator.league){
+                    sum = sum + type.voting_power;
+                }
+              })
+            }
+            {sum?numbro(sum).format('0,0'):0} ({sum?numbro(sum/props.totalPower).format('0.00%'):"0.00%"})
+           </Col>
         <Col xs={12}>
           {props.index === props.toggleIndex && props.isOpen
             ? props.nodesDetail(props.validator.league,props.index)
@@ -54,7 +61,6 @@ export default class LeaguesList extends Component {
     super(props);
     this.state = {
       isOpen: false,
-    //   orderDir: -1,
       validators: [],
       toggleIndex: ""
     };
@@ -127,7 +133,7 @@ export default class LeaguesList extends Component {
                 toggleIndex={this.state.toggleIndex}
               />
             );
-          })
+          }),
         });
       } else {
         this.setState({
@@ -135,8 +141,7 @@ export default class LeaguesList extends Component {
         });
       }
     }
-  }
-
+  };
   nodesDetail = (league,index) => {
     var  count = {};
     return (
