@@ -3,10 +3,19 @@ import moment from 'moment';
 import { Table, Spinner, Col, Row, Card, UncontrolledCollapse, CardBody } from 'reactstrap';
 import i18n from 'meteor/universe:i18n';
 import { Link } from 'react-router-dom';
+import posed from "react-pose";
 
 const T = i18n.createComponent();
 
+const Result = posed.div({
+  closed: { height: 0 },
+  isOpen: { height: "auto" }
+});
+
+var HashMap = require('hashmap');
 const ProposalRow = (props) => {
+  var map = new HashMap();
+  map.set("fundedProposals",props.proposals)
   return (
   <Card body>
     <Row className="validator-info">
@@ -26,7 +35,7 @@ const ProposalRow = (props) => {
       <i className="fas fa-box-open d-lg-none"></i>
       {props.fundingCycle.funded_proposals !== null ? props.fundingCycle.funded_proposals.length : 0}
       </Col>
-      {/* <Col xs={1} onClick={() => props.toggle(props.index)} id="toggler">
+      <Col xs={1} onClick={() => props.toggle(props.index)} id="toggler">
         <i className="material-icons">
             {props.index === props.toggleIndex && props.isOpen
               ? "arrow_drop_down"
@@ -40,37 +49,44 @@ const ProposalRow = (props) => {
           return (
             <React.Fragment>
             {props.index === props.toggleIndex && props.isOpen
-              ? <UncontrolledCollapse toggler="#toggler">
+              ? <Result className="tally-result-detail">
                 {
                   props.proposals.map((proposal,key)=>{
-                    // console.log(proposal.proposalId,"==========")
-                    // console.log(props.fundingCycle.funded_proposals,"++++++++++")
+                  // map.map((proposal,key)=>{
+                    // map.get("fundedProposals"),
+
+                    // map.forEach((fundedProposal) => {
+                  for(i=0;i<props.fundingCycle.funded_proposals.length;i++)
+                  {
+                    if(props.fundingCycle.funded_proposals[i] == proposal.proposalId){
+                    
                     // if(proposal.proposalId == props.fundingCycle.funded_proposals){
                       return <Card key={key} className="trpadding">
                         <tr className="trbg">
                           <td>
                             <T>chainStates.communityPool</T> <span className="badge badge-success">Sent</span>  <em className="text-success">{proposal.proposal_content.value.requested_fund[0].amount/Meteor.settings.public.stakingFraction} {Meteor.settings.public.stakingDenom}</em>
-                            &nbsp; to <Link to={"/proposals/"+proposal.proposalId}>Proposal#{proposal.proposalId}</Link> 
-                       
+                            &nbsp; to <Link to={"/proposals/"+proposal.proposalId}>Proposal#{proposal.proposalId}</Link>
                           </td>
                         </tr>
                         </Card>
-                    // }
-                    // else{
-                    //   return ''
-                    // }
+                        // })
+                    }
                     
+                    else{
+                      return ''
+                    }
+                  }
                   })
                 }
            
-              </UncontrolledCollapse>
+              </Result>
               : null}
           </React.Fragment>
           )
         }))
 
       : null }
-    </Col> */}
+    </Col>
     </Row>
     </Card>
   );

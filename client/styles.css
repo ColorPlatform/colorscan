@@ -427,7 +427,7 @@ div#countdown {
 
 .individualleague {
     display: flex;
-    align-items: baseline;
+    /* align-items: baseline; */
 }
 
 #account .infinity{
@@ -789,7 +789,7 @@ div#voting-power-dist .card{
     }
 } */
 
-@media only screen and (max-width: 575px){
+@media only screen and (max-width: 767px){
     .fas,
     .far{
         padding: 0 20px 0 0;
@@ -801,6 +801,12 @@ div#voting-power-dist .card{
 @media only screen and (max-width: 420px){
     #network-nav{
         display: none
+    }
+}
+
+@media only screen and (max-width: 1233px){
+    .counter{
+        text-align: left;
     }
 }
 

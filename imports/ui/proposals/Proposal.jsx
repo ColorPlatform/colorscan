@@ -383,14 +383,14 @@ export default class Proposal extends Component{
                                             </TabContent>
                                         </CardBody>
                                     </Card></Col>
-                                    <Col xs={12}>
+                                    {/* <Col xs={12}>
                                         <Card body className="tally-info">
                                             <em>
                                                 <T _purify={false} percent={numbro(this.state.totalVotes/totalVotingPower).format("0.00%")}>proposals.percentageVoted</T><br/>
                                                 {this.state.proposalValid?<T _props={{className:'text-success'}} tentative={(!this.state.voteEnded)?'(tentatively) ':''}_purify={false}>proposals.validMessage</T>:(this.state.voteEnded)?<T _props={{className:'text-danger'}} quorum={numbro(this.props.chain.gov.tallyParams.quorum).format("0.00%")} _purify={false}>proposals.invalidMessage</T>:<T moreVotes={numbro((totalVotingPower*this.props.chain.gov.tallyParams.quorum-this.state.totalVotes)/Meteor.settings.public.stakingFraction).format("0,0")} _purify={false}>proposals.moreVoteMessage</T>}
                                             </em>
                                         </Card>
-                                    </Col>
+                                    </Col> */}
                                 </Row>:'Voting not started yet.'}
                             </Col>
                         </Row>

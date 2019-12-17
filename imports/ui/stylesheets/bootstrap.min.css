@@ -7756,12 +7756,15 @@
     }
  }
  
+ @media (min-width: 1233px) {
+    .d-lg-inline-block {
+        display: inline-block !important
+    }
+ }
+
  @media (min-width: 992px) {
      .d-lg-inline {
          display: inline !important
-     }
-     .d-lg-inline-block {
-         display: inline-block !important
      }
      .d-lg-block {
          display: block !important
