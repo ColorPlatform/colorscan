@@ -39,42 +39,42 @@ export default BlockContainer = withTracker((props) => {
         block: blockExist ? block : {},
         transferTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/MsgSend"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgMultiSend"}
+                {"tx.value.msg.type":"color/MsgSend"},
+                {"tx.value.msg.type":"color/MsgMultiSend"}
             ]
         }).fetch() : {},
         stakingTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/MsgCreateValidator"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgEditValidator"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgDelegate"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgUndelegate"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgBeginRedelegate"}
+                {"tx.value.msg.type":"color/MsgCreateValidator"},
+                {"tx.value.msg.type":"color/MsgEditValidator"},
+                {"tx.value.msg.type":"color/MsgDelegate"},
+                {"tx.value.msg.type":"color/MsgUndelegate"},
+                {"tx.value.msg.type":"color/MsgBeginRedelegate"}
             ]
         }).fetch() : {},
         distributionTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/MsgWithdrawValidatorCommission"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgWithdrawDelegationReward"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgModifyWithdrawAddress"}
+                {"tx.value.msg.type":"color/MsgWithdrawValidatorCommission"},
+                {"tx.value.msg.type":"color/MsgWithdrawDelegationReward"},
+                {"tx.value.msg.type":"color/MsgModifyWithdrawAddress"}
             ]
         }).fetch() : {},
         governanceTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/MsgSubmitProposal"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgDeposit"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgVote"}
+                {"tx.value.msg.type":"color/MsgSubmitProposal"},
+                {"tx.value.msg.type":"color/MsgDeposit"},
+                {"tx.value.msg.type":"color/MsgVote"}
             ]
         }).fetch() : {},
         slashingTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/MsgUnjail"}
+                {"tx.value.msg.type":"color/MsgUnjail"}
             ]
         }).fetch() : {},
         IBCTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/IBCTransferMsg"},
-                {"tx.value.msg.type":"cosmos-sdk/IBCReceiveMsg"}
+                {"tx.value.msg.type":"color/IBCTransferMsg"},
+                {"tx.value.msg.type":"color/IBCReceiveMsg"}
             ]
         }).fetch() : {},
     };

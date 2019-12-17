@@ -19,47 +19,47 @@ export default class ButtonActivites extends Component {
         let msg = this.props.msg;
         switch (msg.type){
         // bank
-        case "cosmos-sdk/MsgSend":
+        case "color/MsgSend":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgMultiSend":
+        case "color/MsgMultiSend":
             return <MultiSend msg={msg} />
             
             // staking
-        case "cosmos-sdk/MsgCreateValidator":
+        case "color/MsgCreateValidator":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgEditValidator":
+        case "color/MsgEditValidator":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgDelegate":
+        case "color/MsgDelegate":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgUndelegate":
+        case "color/MsgUndelegate":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgBeginRedelegate":
+        case "color/MsgBeginRedelegate":
             return <MsgType type={msg.type} />
             
             // gov
-        case "cosmos-sdk/MsgSubmitProposal":
+        case "color/MsgSubmitProposal":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgDeposit":
+        case "color/MsgDeposit":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgVote":
+        case "color/MsgVote":
             return <MsgType type={msg.type} />
             
             // distribution
-        case "cosmos-sdk/MsgWithdrawValidatorCommission":
+        case "color/MsgWithdrawValidatorCommission":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgWithdrawDelegationReward":
+        case "color/MsgWithdrawDelegationReward":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/MsgModifyWithdrawAddress":
+        case "color/MsgModifyWithdrawAddress":
             return <MsgType type={msg.type} />
     
             // slashing
-        case "cosmos-sdk/MsgUnjail":
+        case "color/MsgUnjail":
             return <MsgType type={msg.type} />
             
             // ibc
-        case "cosmos-sdk/IBCTransferMsg":
+        case "color/IBCTransferMsg":
             return <MsgType type={msg.type} />
-        case "cosmos-sdk/IBCReceiveMsg":
+        case "color/IBCReceiveMsg":
             return <MsgType type={msg.type} />
     
         default:
