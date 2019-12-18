@@ -77,7 +77,7 @@ export default class Activites extends Component {
             
             // gov
         case "color/MsgSubmitProposal":
-            return <p className="text-success">{numbro(msg.value.value.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</p>
+            return <p className="text-success">{numbro(msg.value.initial_deposit[0].amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</p>
             // return <p><Account address={msg.value.proposer} /> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <T>activities.withTitle</T> <Link to={"/proposals/"+this.props.tags[2].value}>{msg.value.title}</Link><T>common.fullStop</T></p>
         case "color/MsgDeposit":
             return <p className="text-info">{msg.value.amount.map((amount,i) =>{

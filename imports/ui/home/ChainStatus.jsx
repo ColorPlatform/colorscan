@@ -26,6 +26,7 @@ export default class ChainStatus extends React.Component {
 
     componentDidUpdate(prevProps){
         if (prevProps != this.props){
+            if (this.props.states.communityPool !== undefined){
             this.setState({
                 blockHeight: numbro(this.props.status.latestBlockHeight).format({thousandSeparated: true}),
                 blockTime: moment.utc(this.props.status.latestBlockTime).format("D MMM YYYY hh:mm:ssa z"),
@@ -33,7 +34,8 @@ export default class ChainStatus extends React.Component {
                 numValidators: this.props.status.validators,
                 totalNumValidators: this.props.status.totalValidators,
                 bondedTokens: this.props.states.bondedTokens,
-                notBondedTokens: this.props.states.notBondedTokens
+                notBondedTokens: this.props.states.notBondedTokens,
+                communityPool: this.props.states.communityPool[0].amount
             })
 
             switch (this.state.avgBlockTimeType){
@@ -78,6 +80,7 @@ export default class ChainStatus extends React.Component {
 
             }
 
+        }
         }
     }
 
@@ -175,7 +178,7 @@ export default class ChainStatus extends React.Component {
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                                 <CardTitle><T>chainStatus.onlineVotingPower</T> ({this.state.votingPowerText})</CardTitle>
-                                <CardText><span className="display-4 value text-primary">{this.state.votingPower}</span><T percent={numbro(this.state.bondedTokens/(this.state.bondedTokens+this.state.notBondedTokens)).format("0.00%")} totalStakes={numbro((this.state.bondedTokens+this.state.notBondedTokens)/Meteor.settings.public.stakingFraction).format("0.00a")} denom={Meteor.settings.public.stakingDenom}>chainStatus.fromTotalStakes</T></CardText>   
+                                <CardText><span className="display-4 value text-primary">{this.state.votingPower}</span><T percent={numbro(this.state.bondedTokens/(this.state.bondedTokens+this.state.notBondedTokens+this.state.communityPool)).format("0.00%")} totalStakes={numbro((this.state.bondedTokens+this.state.notBondedTokens+this.state.communityPool)/Meteor.settings.public.stakingFraction).format("0.00a")} denom={Meteor.settings.public.stakingDenom}>chainStatus.fromTotalStakes</T></CardText>   
                             </Card>
                         </Col>
                     </Row>
