@@ -92,11 +92,14 @@ Meteor.methods({
     'Analytics.aggregateBlockTimeAndVotingPower': function(time){
         this.unblock();
         let now = new Date();
+		console.log("Analytics.aggregateBlockTimeAndVotingPower("+time+")");
+
         function bestTime(analytics) {
 			var min = Number.MAX_SAFE_INTEGER
 			for (i in analytics){                               
 				if (analytics[i].timeDiff < min) { min = analytics[i].timeDiff; }
 			}
+			console.log("Best time: ", min);
 			return min
 		}
         if (time == 'm'){
