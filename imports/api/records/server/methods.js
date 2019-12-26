@@ -92,7 +92,13 @@ Meteor.methods({
     'Analytics.aggregateBlockTimeAndVotingPower': function(time){
         this.unblock();
         let now = new Date();
-        
+        function bestTime(analytics) {
+			var min = Number.MAX_SAFE_INTEGER
+			for (i in analytics){                               
+				if (analytics[i].timeDiff < min) { min = analytics[i].timeDiff; }
+			}
+			return min
+		}
         if (time == 'm'){
             let averageBlockTime = 0;
             let averageVotingPower = 0;
@@ -103,7 +109,8 @@ Meteor.methods({
                     averageBlockTime += analytics[i].timeDiff;
                     averageVotingPower += analytics[i].voting_power;
                 }
-                averageBlockTime = averageBlockTime / analytics.length;
+                // averageBlockTime = averageBlockTime / analytics.length;
+                averageBlockTime = bestTime(analytics);
                 averageVotingPower = averageVotingPower / analytics.length;
 
                 Chain.update({chainId:Meteor.settings.public.chainId},{$set:{lastMinuteVotingPower:averageVotingPower, lastMinuteBlockTime:averageBlockTime}});
@@ -124,7 +131,8 @@ Meteor.methods({
                     averageBlockTime += analytics[i].timeDiff;
                     averageVotingPower += analytics[i].voting_power;
                 }
-                averageBlockTime = averageBlockTime / analytics.length;    
+                // averageBlockTime = averageBlockTime / analytics.length;
+                averageBlockTime = bestTime(analytics);
                 averageVotingPower = averageVotingPower / analytics.length;
 
                 Chain.update({chainId:Meteor.settings.public.chainId},{$set:{lastHourVotingPower:averageVotingPower, lastHourBlockTime:averageBlockTime}});
@@ -146,7 +154,8 @@ Meteor.methods({
                     averageBlockTime += analytics[i].timeDiff;
                     averageVotingPower += analytics[i].voting_power;
                 }
-                averageBlockTime = averageBlockTime / analytics.length;    
+                // averageBlockTime = averageBlockTime / analytics.length;
+                averageBlockTime = bestTime(analytics);
                 averageVotingPower = averageVotingPower / analytics.length;
 
                 Chain.update({chainId:Meteor.settings.public.chainId},{$set:{lastDayVotingPower:averageVotingPower, lastDayBlockTime:averageBlockTime}});
