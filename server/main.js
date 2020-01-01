@@ -116,6 +116,24 @@ aggregateMinutely = () =>{
         }
     });
 
+    Meteor.call('Analytics.aggregateBlockTimeAndVotingPower', "h", (error, result) => {
+        if (error){
+            console.log("aggregate hourly block time error: "+error)
+        }
+        else{
+            console.log("aggregate hourly block time ok: "+result)
+        }
+    });
+
+    Meteor.call('Analytics.aggregateBlockTimeAndVotingPower', "d", (error, result) => {
+        if (error){
+            console.log("aggregate daily block time error: "+error)
+        }
+        else{
+            console.log("aggregate daily block time ok: "+result)
+        }
+    });
+
     Meteor.call('coinStats.getCoinStats', (error, result) => {
         if (error){
             console.log("get coin stats: "+error);
