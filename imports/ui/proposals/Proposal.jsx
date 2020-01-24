@@ -398,18 +398,18 @@ export default class Proposal extends Component{
                             <Col md={3} className="label"><T>proposals.submitTime</T></Col>
                             <Col md={9} className="value">{moment.utc(this.state.proposal.submit_time).format("D MMM YYYY, h:mm:ssa z")}</Col>
                         </Row>
-                        <Row className="mb-2 border-top">
+                        {/* <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.depositEndTime</T></Col>
                             <Col md={9} className="value">{moment.utc(this.state.proposal.deposit_end_time).format("D MMM YYYY, h:mm:ssa z")}</Col>
-                        </Row>
+                        </Row> */}
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.votingStartTime</T></Col>
                             <Col md={9} className="value">{(this.state.proposal.voting_start_time != '0001-01-01T00:00:00Z')?moment.utc(this.state.proposal.voting_start_time).format("D MMM YYYY, h:mm:ssa z"):'-'}</Col>
                         </Row>
-                        <Row className="mb-2 border-top">
+                        {/* <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.votingEndTime</T></Col>
                             <Col md={9} className="value">{(this.state.proposal.voting_start_time != '0001-01-01T00:00:00Z')?moment.utc(this.state.proposal.voting_end_time).format("D MMM YYYY, h:mm:ssa z"):'-'}</Col>
-                        </Row>
+                        </Row> */}
                     </div>
                     <Row className='clearfix'>
                         <Link to={`/proposals/${proposalId-1}`} className={`btn btn-outline-danger float-left ${proposalId-1<=0?"disabled":""}`}><i className="fas fa-caret-left"></i> Prev Proposal </Link>
