@@ -60,28 +60,28 @@ export default class Proposal extends Component{
             let totalVotingPower = this.props.chain.activeVotingPower * Meteor.settings.public.stakingFraction;
             if (this.props.proposal.voting_start_time != '0001-01-01T00:00:00Z'){
                 if (now.diff(moment(this.props.proposal.voting_start_time)) > 0){
-                    let endVotingTime = moment(this.props.proposal.voting_end_time);
-                    if (now.diff(endVotingTime) < 0){
-                        // not reach end voting time yet
-                        let totalVotes = 0;
-                        for (let i in this.props.proposal.tally){
-                            totalVotes += parseInt(this.props.proposal.tally[i]);
-                        }
+                    // let endVotingTime = moment(this.props.proposal.voting_end_time);
+                    // if (now.diff(endVotingTime) < 0){
+                    //     // not reach end voting time yet
+                    //     let totalVotes = 0;
+                    //     for (let i in this.props.proposal.tally){
+                    //         totalVotes += parseInt(this.props.proposal.tally[i]);
+                    //     }
 
-                        this.setState({
-                            tally: this.props.proposal.tally,
-                            tallyDate: moment.utc(this.props.proposal.updatedAt).format("D MMM YYYY, h:mm:ssa z"),
-                            voteStarted: true,
-                            voteEnded: false,
-                            totalVotes: totalVotes,
-                            yesPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.yes)/totalVotes*100:0,
-                            abstainPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.abstain)/totalVotes*100:0,
-                            noPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no)/totalVotes*100:0,
-                            // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no_with_veto)/totalVotes*100:0,
-                            proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
-                        })
-                    }
-                    else{
+                    //     this.setState({
+                    //         tally: this.props.proposal.tally,
+                    //         tallyDate: moment.utc(this.props.proposal.updatedAt).format("D MMM YYYY, h:mm:ssa z"),
+                    //         voteStarted: true,
+                    //         voteEnded: false,
+                    //         totalVotes: totalVotes,
+                    //         yesPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.yes)/totalVotes*100:0,
+                    //         abstainPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.abstain)/totalVotes*100:0,
+                    //         noPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no)/totalVotes*100:0,
+                    //         // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no_with_veto)/totalVotes*100:0,
+                    //         proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
+                    //     })
+                    // }
+                    // else{
                         let totalVotes = 0;
                         for (let i in this.props.proposal.final_tally_result){
                             totalVotes += parseInt(this.props.proposal.final_tally_result[i]);
@@ -99,7 +99,7 @@ export default class Proposal extends Component{
                             // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.no_with_veto)/totalVotes*100:0,
                             proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
                         })
-                    }
+                    // }
                 }
             }
         }
@@ -398,18 +398,18 @@ export default class Proposal extends Component{
                             <Col md={3} className="label"><T>proposals.submitTime</T></Col>
                             <Col md={9} className="value">{moment.utc(this.state.proposal.submit_time).format("D MMM YYYY, h:mm:ssa z")}</Col>
                         </Row>
-                        <Row className="mb-2 border-top">
+                        {/* <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.depositEndTime</T></Col>
                             <Col md={9} className="value">{moment.utc(this.state.proposal.deposit_end_time).format("D MMM YYYY, h:mm:ssa z")}</Col>
-                        </Row>
+                        </Row> */}
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.votingStartTime</T></Col>
                             <Col md={9} className="value">{(this.state.proposal.voting_start_time != '0001-01-01T00:00:00Z')?moment.utc(this.state.proposal.voting_start_time).format("D MMM YYYY, h:mm:ssa z"):'-'}</Col>
                         </Row>
-                        <Row className="mb-2 border-top">
+                        {/* <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.votingEndTime</T></Col>
                             <Col md={9} className="value">{(this.state.proposal.voting_start_time != '0001-01-01T00:00:00Z')?moment.utc(this.state.proposal.voting_end_time).format("D MMM YYYY, h:mm:ssa z"):'-'}</Col>
-                        </Row>
+                        </Row> */}
                     </div>
                     <Row className='clearfix'>
                         <Link to={`/proposals/${proposalId-1}`} className={`btn btn-outline-danger float-left ${proposalId-1<=0?"disabled":""}`}><i className="fas fa-caret-left"></i> Prev Proposal </Link>
