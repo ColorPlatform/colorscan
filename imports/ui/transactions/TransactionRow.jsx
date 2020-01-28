@@ -27,7 +27,7 @@ export const TransactionRow = (props) => {
         <Col xs={(!props.blockList)?3:2} md={(!props.blockList)?2:2} className="fee"><i className="material-icons d-lg-none">monetization_on</i> {tx.tx.value.fee.amount?tx.tx.value.fee.amount.map((fee,i) => {
             return <span key={i}>{new Coin(fee.amount).toString()}</span>
             {/* {numbro(fee.amount).format(0,0)} CLR</span> */}
-        }):<span>No fee</span>}</Col>
+        }):<span></span>}</Col>
         {(!props.blockList)?<Col xs={2} md={2}><i className="fas fa-database d-lg-none"></i> <Link to={"/blocks/"+tx.height}>{numbro(tx.height).format("0,0")}</Link></Col>:''}
         <Col xs={(!props.blockList)?{size:4,order:"first"}:{size:12,order:"first"}} md={(!props.blockList)?{size:3, order: "first"}:{size:7, order: "first"}} lg={(!props.blockList)?{size:1,order:"first"}:{size:2,order:"first"}} className="text-truncate"><i className="fas fa-hashtag d-lg-none"></i> <Link to={"/transactions/"+tx.txhash}>{tx.txhash}</Link></Col>
         {(!props.blockList)?<Col xs={2} md={2}><span>{tx.block()?moment.utc(tx.block().time).format("D MMM YYYY, h:mm:ssa"):''}</span></Col>:''}

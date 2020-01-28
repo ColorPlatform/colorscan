@@ -15,7 +15,7 @@
         "stakingDenom": "CLR",
         "mintingDenom": " uclr",
         "stakingFraction": 1000000,
-        "coingeckoId": "colorplatform"
+        "coingeckoId": "color"
     },
     "genesisFile": "https://rpc.mainbeta-2.color-platform.org/genesis",
     "remote":{

@@ -60,28 +60,28 @@ export default class Proposal extends Component{
             let totalVotingPower = this.props.chain.activeVotingPower * Meteor.settings.public.stakingFraction;
             if (this.props.proposal.voting_start_time != '0001-01-01T00:00:00Z'){
                 if (now.diff(moment(this.props.proposal.voting_start_time)) > 0){
-                    let endVotingTime = moment(this.props.proposal.voting_end_time);
-                    if (now.diff(endVotingTime) < 0){
-                        // not reach end voting time yet
-                        let totalVotes = 0;
-                        for (let i in this.props.proposal.tally){
-                            totalVotes += parseInt(this.props.proposal.tally[i]);
-                        }
+                    // let endVotingTime = moment(this.props.proposal.voting_end_time);
+                    // if (now.diff(endVotingTime) < 0){
+                    //     // not reach end voting time yet
+                    //     let totalVotes = 0;
+                    //     for (let i in this.props.proposal.tally){
+                    //         totalVotes += parseInt(this.props.proposal.tally[i]);
+                    //     }
 
-                        this.setState({
-                            tally: this.props.proposal.tally,
-                            tallyDate: moment.utc(this.props.proposal.updatedAt).format("D MMM YYYY, h:mm:ssa z"),
-                            voteStarted: true,
-                            voteEnded: false,
-                            totalVotes: totalVotes,
-                            yesPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.yes)/totalVotes*100:0,
-                            abstainPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.abstain)/totalVotes*100:0,
-                            noPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no)/totalVotes*100:0,
-                            // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no_with_veto)/totalVotes*100:0,
-                            proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
-                        })
-                    }
-                    else{
+                    //     this.setState({
+                    //         tally: this.props.proposal.tally,
+                    //         tallyDate: moment.utc(this.props.proposal.updatedAt).format("D MMM YYYY, h:mm:ssa z"),
+                    //         voteStarted: true,
+                    //         voteEnded: false,
+                    //         totalVotes: totalVotes,
+                    //         yesPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.yes)/totalVotes*100:0,
+                    //         abstainPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.abstain)/totalVotes*100:0,
+                    //         noPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no)/totalVotes*100:0,
+                    //         // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.tally.no_with_veto)/totalVotes*100:0,
+                    //         proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
+                    //     })
+                    // }
+                    // else{
                         let totalVotes = 0;
                         for (let i in this.props.proposal.final_tally_result){
                             totalVotes += parseInt(this.props.proposal.final_tally_result[i]);
@@ -99,7 +99,7 @@ export default class Proposal extends Component{
                             // noWithVetoPercent: (totalVotes>0)?parseInt(this.props.proposal.final_tally_result.no_with_veto)/totalVotes*100:0,
                             proposalValid: (this.state.totalVotes/totalVotingPower > parseFloat(this.props.chain.gov.tallyParams.quorum))?true:false
                         })
-                    }
+                    // }
                 }
             }
         }
@@ -235,11 +235,11 @@ export default class Proposal extends Component{
                         </Col>
                         <Col className="voting-power data" md={4}>
                             <i className="material-icons d-md-none">power</i>
-                            {(vote.votingPower!==undefined)?numbro(vote.votingPower).format('0,0.00'):""}
+                            {(vote.votingPower!==undefined)?numbro(Math.sqrt(vote.votingPower)).format('0,0.00'):""}
                         </Col>
                         <Col className="voting-power-percent data" md={3}>
                             <i className="material-icons d-md-none">equalizer</i>
-                            {(vote.votingPower!==undefined) && (this.state.totalVotes!=0) ?numbro(vote.votingPower/this.state.totalVotes).format('0,0.00%'):"0.00%"}
+                            {(vote.votingPower!==undefined) && (this.state.totalVotes!=0) ?numbro((Math.sqrt(vote.votingPower))/this.state.totalVotes).format('0,0.00%'):"0.00%"}
                         </Col>
                     </Row></Card>
                 )}
@@ -324,7 +324,7 @@ export default class Proposal extends Component{
                             <Col md={9} className="value">
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="yes" /> Yes</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.yes/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.yes).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(1,e)}><i className="material-icons">{this.state.open === 1 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(1, 'Yes')}
@@ -332,7 +332,7 @@ export default class Proposal extends Component{
                                 </Row>
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="abstain" /> Abstain</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.abstain/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.abstain).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(2,e)}><i className="material-icons">{this.state.open === 2 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(2, 'Abstain')}
@@ -340,7 +340,7 @@ export default class Proposal extends Component{
                                 </Row>
                                 <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="no" /> No</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(3,e)}><i className="material-icons">{this.state.open === 3 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(3, 'No')}
@@ -348,7 +348,7 @@ export default class Proposal extends Component{
                                 </Row>
                                 {/* <Row>
                                     <Col xs={6} sm={5} md={4}><VoteIcon vote="no_with_veto" /> No with Veto</Col>
-                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no_with_veto/Meteor.settings.public.stakingFraction).format("0,0"):''}</Col>
+                                    <Col xs={5} sm={6} md={7} className="tally-result-value">{this.state.tally?numbro(this.state.tally.no_with_veto).format("0,0"):''}</Col>
                                     <Col xs={1} onClick={(e) => this.handleClick(4,e)}><i className="material-icons">{this.state.open === 4 ? 'arrow_drop_down' : 'arrow_left'}</i></Col>
                                     <Col xs={12}>
                                         {this.renderTallyResultDetail(4, 'NoWithVeto')}
@@ -398,18 +398,18 @@ export default class Proposal extends Component{
                             <Col md={3} className="label"><T>proposals.submitTime</T></Col>
                             <Col md={9} className="value">{moment.utc(this.state.proposal.submit_time).format("D MMM YYYY, h:mm:ssa z")}</Col>
                         </Row>
-                        <Row className="mb-2 border-top">
+                        {/* <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.depositEndTime</T></Col>
                             <Col md={9} className="value">{moment.utc(this.state.proposal.deposit_end_time).format("D MMM YYYY, h:mm:ssa z")}</Col>
-                        </Row>
+                        </Row> */}
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.votingStartTime</T></Col>
                             <Col md={9} className="value">{(this.state.proposal.voting_start_time != '0001-01-01T00:00:00Z')?moment.utc(this.state.proposal.voting_start_time).format("D MMM YYYY, h:mm:ssa z"):'-'}</Col>
                         </Row>
-                        <Row className="mb-2 border-top">
+                        {/* <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.votingEndTime</T></Col>
                             <Col md={9} className="value">{(this.state.proposal.voting_start_time != '0001-01-01T00:00:00Z')?moment.utc(this.state.proposal.voting_end_time).format("D MMM YYYY, h:mm:ssa z"):'-'}</Col>
-                        </Row>
+                        </Row> */}
                     </div>
                     <Row className='clearfix'>
                         <Link to={`/proposals/${proposalId-1}`} className={`btn btn-outline-danger float-left ${proposalId-1<=0?"disabled":""}`}><i className="fas fa-caret-left"></i> Prev Proposal </Link>

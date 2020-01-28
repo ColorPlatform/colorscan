@@ -63,7 +63,7 @@ export default class Activites extends Component {
         return <p className="text-success">{numbro(msg.value.value.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</p>
             // return <p><Account address={msg.value.delegator_address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /> <T>activities.operatingAt</T> <span className="address"><Account address={msg.value.validator_address}/></span> <T>activities.withMoniker</T> <Link to="#">{msg.value.description.moniker}</Link><T>common.fullStop</T></p>
         case "color/MsgEditValidator":
-            return <p className="text-success">{numbro(msg.value.value.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</p>
+            return <p></p>
             // return <p><Account address={msg.value.address}/> {(this.props.invalid)?<T>activities.failedTo</T>:''}<MsgType type={msg.type} /></p>
         case "color/MsgDelegate":
             return <p className="text-warning">{numbro(msg.value.amount.amount/Meteor.settings.public.stakingFraction).format("0,0")} {Meteor.settings.public.stakingDenom}</p>

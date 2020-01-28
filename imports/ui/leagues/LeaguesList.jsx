@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Row, Col, Card, Spinner } from "reactstrap";
+import React, { Component , useState } from "react";
+import { Row, Col, Card, Spinner , Collapse} from "reactstrap";
 import { Link } from "react-router-dom";
 import i18n from 'meteor/universe:i18n';
 import numbro from "numbro";
@@ -13,6 +13,14 @@ const Result = posed.div({
 });
 
 const ValidatorRow = props => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [toggleIndex, setToggleIndex]  = useState("");
+
+  const toggle = index => {
+    setToggleIndex(index)
+    setIsOpen(!isOpen);
+  }
+
  uniqueCount = [...props.validators];
  var  count = {};
  uniqueCount.forEach(function(i) { count[i.league] = (count[i.league]||0) + 1;});
@@ -20,9 +28,9 @@ const ValidatorRow = props => {
  return (
     <Card body>
       <Row className="validator-info">
-        <Col xs={1} onClick={() => props.toggle(props.index)}>
+        <Col xs={1} onClick={() => toggle(props.index)}>
           <i className="material-icons iconsize">
-            {props.index === props.toggleIndex && props.isOpen
+            {isOpen
               ? "arrow_right"
               : "arrow_drop_down"}
           </i>
@@ -38,7 +46,7 @@ const ValidatorRow = props => {
         </Col>
         <Col className="data" xs={2} md={2}>
             {
-              props.validators.map((type,key)=>{
+              props.validators.map((type)=>{
                 if(type.league===props.validator.league){
                     sum = sum + type.voting_power;
                 }
@@ -47,9 +55,9 @@ const ValidatorRow = props => {
             {sum?numbro(sum).format('0,0'):0} ({sum?numbro(sum/props.totalPower).format('0.00%'):"0.00%"})
            </Col>
         <Col xs={12}>
-          {props.index === props.toggleIndex && props.isOpen
-            ? props.nodesDetail(props.validator.league,props.index)
-            : null}
+          {toggleIndex == props.index && isOpen && (
+            <Collapse isOpen={isOpen}>{props.nodesDetail(props.validator.league,props.index)}</Collapse>
+          )}
         </Col>
       </Row>
     </Card>
@@ -60,51 +68,10 @@ export default class LeaguesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
-      validators: [],
-      toggleIndex: ""
+      validators: []
     };
-
-    // if (Meteor.isServer){
-
-    //     if (this.props.validators.length > 0 && this.props.chainStatus){
-    //         this.state = {
-    //             validators: this.props.validators.map((validator, i) => {
-    //                 return <ValidatorRow
-    //                     key={validator.address}
-    //                     index={i}
-    //                     nodesDetail={this.nodesDetail}
-    //                     isOpen={this.state.open}
-    //                     validator={validator}
-    //                     // handleClick={handleClick}
-    //                     address={validator.address}
-    //                     totalPower={this.props.chainStatus.activeVotingPower}
-    //                     inactive={this.props.inactive}
-    //                     validators={this.state.validators}
-    //                 />
-    //             })
-    //         }
-    //     }
-    // }
-    // else{
-    //     this.state = {
-    //         validators: ""
-    //     }
-    // }
   }
 
-//   toggleDir(e) {
-//     e.preventDefault();
-//     this.setState({
-//       orderDir: this.state.orderDir * -1
-//     });
-//   }
-  toggle = index => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-      toggleIndex: index
-    });
-  };
   componentDidUpdate(prevProps) {
     if (this.props.validators != prevProps.validators) {
         const newArray = [];
@@ -123,14 +90,11 @@ export default class LeaguesList extends Component {
                 key={validator.address}
                 index={i}
                 validator={validator}
-                isOpen={this.state.isOpen}
                 address={validator.address}
                 totalPower={this.props.chainStatus.activeVotingPower}
                 inactive={this.props.inactive}
                 validators={this.props.validators}
                 nodesDetail={this.nodesDetail}
-                toggle={this.toggle}
-                toggleIndex={this.state.toggleIndex}
               />
             );
           }),
@@ -142,7 +106,7 @@ export default class LeaguesList extends Component {
       }
     }
   };
-  nodesDetail = (league,index) => {
+  nodesDetail = (league) => {
     var  count = {};
     return (
       <Result className="tally-result-detail">
