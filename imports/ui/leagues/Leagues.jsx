@@ -91,7 +91,7 @@ export default class Leagues extends Component {
           }}
         >
           <Helmet>
-            <title>Leagues on Color Explorer | Color</title>
+            <title>Leagues | ColorScan</title>
             <meta
               name="description"
               content="Here is a list of Color Leagues"
@@ -257,7 +257,7 @@ export default class Leagues extends Component {
               onClick={e =>
                 this.props.history.push("/voting-power-distribution")
               }
-              title="Voting Power"
+              title="Delegations"
             >
               <NavIcon>
                 <i
@@ -265,7 +265,7 @@ export default class Leagues extends Component {
                   style={{ fontSize: "1.5em", color: "black" }}
                 />
               </NavIcon>
-              <NavText>Voting Power</NavText>
+              <NavText>Delegations</NavText>
             </NavItem>
           </SideNav.Nav>
         </SideNav>

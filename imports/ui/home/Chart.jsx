@@ -38,7 +38,7 @@ export default class Chart extends Component{
                     labels:dates,
                     datasets: [
                         {
-                            label: 'Voting Power',
+                            label: 'Delegations',
                             fill: false,
                             lineTension: 0,
                             yAxisID: 'VotingPower',

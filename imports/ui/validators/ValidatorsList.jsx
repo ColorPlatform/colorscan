@@ -99,7 +99,7 @@ export default class Validators extends Component{
                         padding: '15px 20px 0 20px'
                     }}>
             <Helmet>
-                <title>Validators on Color Explorer | Color</title>
+                <title>Validators | ColorScan</title>
                 <meta name="description" content="Here is a list of Color Validators" />
             </Helmet>
             <Row>
@@ -224,12 +224,12 @@ export default class Validators extends Component{
                         </NavText>
                         
                     </NavItem>
-                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Voting Power">
+                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Delegations">
                         <NavIcon>
                             <i className="fa fa-fw fa-chart-bar" style={{ fontSize: '1.5em', color: 'black'}} />
                         </NavIcon>
                         <NavText>
-                            Voting Power
+                            Delegations
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>

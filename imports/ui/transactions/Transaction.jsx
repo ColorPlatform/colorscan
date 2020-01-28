@@ -29,7 +29,7 @@ export default class Transaction extends Component{
                 let tx = this.props.transaction;
                 return <Container id="transaction" className="paddingleft">
                     <Helmet>
-                        <title>Transaction {tx.txhash} on Color Explorer | Color</title>
+                        <title>Transaction {tx.txhash} | ColorScan</title>
                         <meta name="description" content={"Details of transaction "+tx.txhash} />
                     </Helmet>
                     <h4><T>transactions.transaction</T> {(!tx.code)?<TxIcon valid />:<TxIcon />}</h4>
