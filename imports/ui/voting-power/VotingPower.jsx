@@ -47,7 +47,7 @@ export default class VotingPower extends Component{
                     labels:labels,
                     datasets: [
                         {
-                            label: "Voting Power",
+                            label: "Delegations",
                             data: data,
                             backgroundColor: backgroundColors
                         }

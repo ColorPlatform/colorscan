@@ -258,7 +258,7 @@ export default class Proposal extends Component{
                 let totalVotingPower = this.props.chain.activeVotingPower * Meteor.settings.public.stakingFraction;
                 return <div>
                     <Helmet>
-                        <title>{this.props.proposal.proposal_content.value.title} | Color</title>
+                        <title>{this.props.proposal.proposal_content.value.title} | ColorScan</title>
                         <meta name="description" content={this.props.proposal.proposal_content.value.description} />
                     </Helmet>
                     <div className="proposal bg-light">

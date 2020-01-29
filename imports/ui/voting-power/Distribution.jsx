@@ -37,8 +37,8 @@ export default class Distribution extends Component{
                             padding: '15px 20px 15px 20px'
                         }}>
             <Helmet>
-                <title>Voting Power Distribution on Color Explorer | Color</title>
-                <meta name="description" content="We would like to keep track how voting power are distributed over time among validators." />
+                <title>Delegation Distribution | ColorScan</title>
+                <meta name="description" content="We would like to keep track how delegations are distributed over time among validators." />
             </Helmet>
             <Row>
                 <Col md={3} xs={12}><h1 className="d-none d-lg-block"><T>votingPower.distribution</T></h1></Col>
@@ -120,12 +120,12 @@ export default class Distribution extends Component{
                         </NavText>
                         
                     </NavItem>
-                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Voting Power">
+                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Delegations">
                         <NavIcon>
                             <i className="fa fa-fw fa-chart-bar" style={{ fontSize: '1.5em', color: 'black'}} />
                         </NavIcon>
                         <NavText>
-                            Voting Power
+                            Delegations
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>

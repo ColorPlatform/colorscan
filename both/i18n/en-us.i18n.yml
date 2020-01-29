@@ -4,7 +4,7 @@ _namespace: ''
 common:
     height: 'Height'
     voter: 'Voter'
-    votingPower: 'Voting Power'
+    votingPower: 'Delegations'
     addresses: 'Addresses'
     amounts: 'Amounts'
     delegators: 'delegators'
@@ -28,7 +28,7 @@ navbar:
     leagues: 'Leagues'
     transactions: 'Transactions'
     proposals: 'Proposals'
-    votingPower: 'Voting Power'
+    votingPower: 'Delegations'
     lang: "ENG"
     english: "English"
     chinese: "中文（繁）"
@@ -60,7 +60,7 @@ chainStatus:
     seconds: 'seconds'
     activeValidators: 'Active Validators'
     outOfValidators: 'out of {$totalValidators} validators'
-    onlineVotingPower: 'Online Voting Power'
+    onlineVotingPower: 'Total Delegations'
     fromTotalStakes: '{$percent} from {$totalStakes} {$denom}'
 analytics:
     blockTimeHistory: 'Block Time History'
@@ -76,7 +76,7 @@ validators:
     commission: 'Commission'
     lastSeen: 'Last Seen'
     status: 'Status'
-    jailed: 'Jailed'
+    jailed: 'Suspended'
     navActive: 'Active'
     navInactive: 'Inactive'
     active: 'Active Validators'
@@ -187,7 +187,7 @@ proposals:
     invalidMessage: 'Less than {$quorum} of voting power is voted. This proposal is <strong>invalid</strong>.'
     moreVoteMessage: 'It will be a valid proposal once <span class="text-info">{$moreVotes}</span> more votes are casted.'
 votingPower:
-    distribution: 'Voting Power Distribution'
+    distribution: 'Delegation Distribution'
     pareto: 'Pareto Principle (20/80 rule)'
     minValidators34: 'Min no. of validators hold 34%+ power'
 accounts:
@@ -232,6 +232,6 @@ messageTypes:
     withdrawComission: 'Withdraw Commission'
     withdrawReward: 'Withdraw Reward'
     modifyWithdrawAddress: 'Modify Withdraw Address'
-    unjail: 'Unjail'
+    unjail: 'Unsuspend'
     IBCTransfer: 'IBC Transfer'
     IBCReceive: 'IBC Receive'

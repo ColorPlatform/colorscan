@@ -45,8 +45,8 @@ export default class FundingCycles extends Component{
                             padding: '15px 20px 0 20px'
                         }}>
             <Helmet>
-                <title>Funding Cycles on Color Explorer | Color</title>
-                <meta name="description" content="Color Explorer incorporates on-chain governance. Come to see how on-chain governance can be achieved on Color Explorer." />
+                <title>Funding Cycles | ColorScan</title>
+                <meta name="description" content="Color Platform incorporates on-chain governance. Come to see how on-chain governance can be achieved on Color Platform." />
             </Helmet>
             <Row>
                 <Col md={3} xs={12}><h1 className="d-none d-lg-block"><T>fundingcycles.fundingcycles</T></h1></Col>
@@ -122,12 +122,12 @@ export default class FundingCycles extends Component{
                         </NavText>
                         
                     </NavItem>
-                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Voting Power">
+                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Delegations">
                         <NavIcon>
                             <i className="fa fa-fw fa-chart-bar" style={{ fontSize: '1.5em', color: 'black'}} />
                         </NavIcon>
                         <NavText>
-                            Voting Power
+                            Delegations
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>

@@ -132,7 +132,7 @@ export default class Validator extends Component{
 
                 return <Row className="validator-details">
                     <Helmet>
-                        <title>{ moniker } - Color | Explorer</title>
+                        <title>Node { moniker } | ColorScan</title>
                         <meta name="description" content={details} />
                     </Helmet>
                     <Col xs={12}>
