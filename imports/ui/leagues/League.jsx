@@ -139,16 +139,16 @@ export default class League extends Component {
   }
 
   render() {
+    var count = {};
     if (this.props.loading) {
       return <Spinner type="grow" color="primary" />;
     } else {
       if (this.props.validatorsExist) {
         let league = this.props.match.params.address;
         let uniqueCount = [...this.props.validators];
-        var count = {};
+
         return (
-            <div
-            id="validator-list">
+          <div id="validator-list">
             <Helmet>
               <title>League{league} - Color | Explorer</title>
               {/* <meta name="description" content={details} /> */}
@@ -159,9 +159,9 @@ export default class League extends Component {
               </Link>
             </Col>
             <Row className="validator-list">
-            <Col md={12}>
-            <Card body>
-                <Row className="header text-nowrap">
+              <Col md={12}>
+                <Card body>
+                  <Row className="header text-nowrap">
                     <Col className="d-none d-md-block counter" md={1}>
                       &nbsp;
                     </Col>
@@ -187,55 +187,66 @@ export default class League extends Component {
                     </Col>
                   </Row>
                 </Card>
-                </Col>
-                </Row>
+              </Col>
+            </Row>
             {Object.values(this.props.validators).map((validator, index) => {
               if (validator.league === this.props.match.params.address) {
-                return (
-                    validator.league == league ? (
-                        uniqueCount = [...validator.league],
-                        uniqueCount.forEach(function(index) { count[index] = (count[index]||0) + 1}),
-                    <div
-                        id="validator-list">
-                    <Row className="validator-list">
-                    <Col md={12}>
-                    <Card body key={index}>
-                      <Row className="validator-info">
-                        <Col className="d-none d-md-block counter data" md={1}>
-                        {count[validator.league]}
-                        </Col>
-                        <Col className="moniker data" md={4}>
-                          <span className="address overflow-auto d-inline">
-                            <Link
-                              to={"/validator/" + validator.operator_address}
-                            >
-                              {validator.description.moniker}
-                            </Link>
-                          </span>
-                        </Col>
-                        <Col className="voting-power" md={4}>
-                          <i className="material-icons d-md-none">power</i>
-                          {validator.voting_power
-                            ? numbro(validator.voting_power).format("0,0")
-                            : 0}{" "}
-                          (
-                          {validator.voting_power
-                            ? numbro(
-                                validator.voting_power /
-                                  this.props.chainStatus.activeVotingPower
-                              ).format("0.00%")
-                            : "0.00%"}
-                          )
-                        </Col>
-                        <Col md={3}></Col>
-                      </Row>
-                    </Card>
-                    </Col>
-                    </Row>
-                    </div>
-                    ) : ( null
-                        )
-                );
+                return validator.league == league
+                  ? ((uniqueCount = [...validator.league]),
+                    uniqueCount.forEach(function(index) {
+                      count[index] = (count[index] || 0) + 1;
+                    }),
+                    (
+                      <div id="validator-list">
+                        <Row className="validator-list">
+                          <Col md={12}>
+                            <Card body key={index}>
+                              <Row className="validator-info">
+                                <Col
+                                  className="d-none d-md-block counter data"
+                                  md={1}
+                                >
+                                  {count[validator.league]}
+                                </Col>
+                                <Col className="moniker data" md={4}>
+                                  <span className="address overflow-auto d-inline">
+                                    <Link
+                                      to={
+                                        "/validator/" +
+                                        validator.operator_address
+                                      }
+                                    >
+                                      {validator.description.moniker}
+                                    </Link>
+                                  </span>
+                                </Col>
+                                <Col className="voting-power" md={4}>
+                                  <i className="material-icons d-md-none">
+                                    power
+                                  </i>
+                                  {validator.voting_power
+                                    ? numbro(validator.voting_power).format(
+                                        "0,0"
+                                      )
+                                    : 0}{" "}
+                                  (
+                                  {validator.voting_power
+                                    ? numbro(
+                                        validator.voting_power /
+                                          this.props.chainStatus
+                                            .activeVotingPower
+                                      ).format("0.00%")
+                                    : "0.00%"}
+                                  )
+                                </Col>
+                                <Col md={3}></Col>
+                              </Row>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </div>
+                    ))
+                  : null;
               } else {
                 return null;
               }
