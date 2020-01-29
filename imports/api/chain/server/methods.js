@@ -147,8 +147,8 @@ Meteor.methods({
                 // catch(e){
                 //     console.log(e);
                 // }
-
-                ChainStates.insert(chainStates);
+                ChainStates.update({height: chainStates.height}, chainStates, {upsert:true});
+                // ChainStates.insert(chainStates);
             }
 
             // chain.totalVotingPower = totalVP;

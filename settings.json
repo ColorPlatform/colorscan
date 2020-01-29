@@ -1,7 +1,7 @@
 {
     "public":{
         "chainName": "Dashboard",
-        "chainId": "local-testnet",
+        "chainId": "color-mainbeta-2",
         "gtm": "{Add your Google Tag Manager ID here}",
         "slashingWindow": 10000,
         "uptimeWindow": 250,
@@ -17,10 +17,10 @@
         "stakingFraction": 1000000,
         "coingeckoId": "color"
     },
-    "genesisFile": "https://rpc.testnet.color-platform.rnssol.com/genesis",
+    "genesisFile": "https://rpc.mainbeta-2.color-platform.org/genesis",
     "remote":{
-        "rpc":"https://rpc.testnet.color-platform.rnssol.com",
-        "lcd":"https://lcd.testnet.color-platform.rnssol.com"
+        "rpc":"https://rpc.mainbeta-2.color-platform.org",
+        "lcd":"https://lcd.mainbeta-2.color-platform.org"
     },
     "debug": {
         "startTimer": true,
