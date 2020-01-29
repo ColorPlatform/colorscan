@@ -21,7 +21,7 @@ const ValidatorRow = (props) => {
                                                                                                                                                                                                                                                     {/* <span className="d-md-none">&nbsp;</span> */}
             {(props.inactive)?<Col className="last-seen data" xs={{size:10,offset:2}}md={{size:2, offset:0}}>{props.validator.lastSeen?moment.utc(props.validator.lastSeen).format("D MMM YYYY, h:mm:ssa"):''}</Col>:''}
             {(props.inactive)?<Col className="bond-status data" xs={2} md={1}>{(props.validator.status == 0)?<Badge color="secondary"><span>U<span className="d-none d-md-inline">nbonded</span></span></Badge>:<Badge color="warning"><span>U<span className="d-none d-md-inline">nbonding</span></span></Badge>}</Col>:''}
-            {(props.inactive)?<Col className="jail-status data" xs={2} md={1}>{props.validator.jailed?<Badge color="danger"><span>J<span className="d-none d-md-inline">ailed</span></span></Badge>:''}</Col>:''}
+            {(props.inactive)?<Col className="jail-status data" xs={2} md={1}>{props.validator.jailed?<Badge color="danger"><span>S<span className="d-none d-md-inline">uspended</span></span></Badge>:''}</Col>:''}
         </Row>
     </Card>
 }

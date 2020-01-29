@@ -150,8 +150,8 @@ export default class League extends Component {
         return (
           <div id="validator-list">
             <Helmet>
-              <title>League{league} - Color | Explorer</title>
-              {/* <meta name="description" content={details} /> */}
+              <title>League{league} | ColorScan</title>
+              <meta name="description" content="League {league} on ColorScan" />
             </Helmet>
             <Col xs={12}>
               <Link to="/validators" className="btn btn-link">

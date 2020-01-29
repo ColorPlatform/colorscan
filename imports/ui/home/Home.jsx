@@ -59,7 +59,7 @@ export default class Home extends Component{
                         padding: '15px 20px 0 20px'
                     }}>
             <Helmet>
-                <title>Color | Explorer</title>
+                <title>Dashboard | ColorScan</title>
                 <meta name="description" content="Color is a decentralized network of independent parallel blockchains, each powered by BFT consensus algorithms like Prism consensus." />
             </Helmet>
             <Row>
@@ -149,12 +149,12 @@ export default class Home extends Component{
                         </NavText>
                         
                     </NavItem>
-                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Voting Power">
+                    <NavItem eventKey="voting-power-distribution" onClick={ e => this.props.history.push("/voting-power-distribution") } title="Delegations">
                         <NavIcon>
                             <i className="fa fa-fw fa-chart-bar" style={{ fontSize: '1.5em', color: 'black'}} />
                         </NavIcon>
                         <NavText>
-                            Voting Power
+                            Delegations
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>
