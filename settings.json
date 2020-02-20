@@ -1,26 +1,26 @@
 {
     "public":{
         "chainName": "Dashboard",
-        "chainId": "color-mainbeta-2",
+        "chainId": "color-mainbeta-3",
         "gtm": "{Add your Google Tag Manager ID here}",
         "slashingWindow": 10000,
         "uptimeWindow": 250,
         "initialPageSize": 30,
-        "bech32PrefixAccAddr": "colors",
-        "bech32PrefixAccPub": "colorspub",
-        "bech32PrefixValAddr": "colorsvaloper",
-        "bech32PrefixValPub": "colorsvaloperpub",
-        "bech32PrefixConsAddr": "colorsvalcons",
-        "bech32PrefixConsPub": "colorsvalconspub",
+        "bech32PrefixAccAddr": "color",
+        "bech32PrefixAccPub": "colorpub",
+        "bech32PrefixValAddr": "colorvaloper",
+        "bech32PrefixValPub": "colorvaloperpub",
+        "bech32PrefixConsAddr": "colorvalcons",
+        "bech32PrefixConsPub": "colorvalconspub",
         "stakingDenom": "CLR",
         "mintingDenom": " uclr",
         "stakingFraction": 1000000,
         "coingeckoId": "color"
     },
-    "genesisFile": "https://rpc.mainbeta-2.color-platform.org/genesis",
+    "genesisFile": "https://rpc.mainbeta-3.color-platform.org/genesis",
     "remote":{
-        "rpc":"https://rpc.mainbeta-2.color-platform.org",
-        "lcd":"https://lcd.mainbeta-2.color-platform.org"
+        "rpc":"https://rpc.mainbeta-3.color-platform.org",
+        "lcd":"https://lcd.mainbeta-3.color-platform.org"
     },
     "debug": {
         "startTimer": true,
