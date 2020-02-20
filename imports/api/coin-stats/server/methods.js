@@ -17,7 +17,7 @@ Meteor.methods({
                     let data = JSON.parse(response.content);
                     data = data[coinId];
                     // console.log(coinStats);
-                    return CoinStats.insert(data);
+                    return CoinStats.update({last_updated_at: data.last_updated_at}, data, {upsert:true});
                 }
             }
             catch(e){
