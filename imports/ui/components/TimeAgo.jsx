@@ -7,7 +7,7 @@ export default class TimeAgo extends Component{
         super(props);
         
         moment.relativeTimeThreshold('s', 60);
-        moment.relativeTimeThreshold('ss', 3);
+        moment.relativeTimeThreshold('ss', 0);
         
         this.state = {
             timer: 0,

@@ -227,7 +227,7 @@ export default class AccountDetails extends Component{
                         </NavText>
                         
                     </NavItem>
-                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
+{/*                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
                         <NavIcon>
                             <i className="fa fa-fw fa-flag" style={{ fontSize: '1.5em', color: 'black' }} />
                         </NavIcon>
@@ -236,6 +236,7 @@ export default class AccountDetails extends Component{
                         </NavText>
                         
                     </NavItem>
+*/}
                     <NavItem eventKey="blocks" onClick={ e => this.props.history.push("/blocks") } title="Blocks">
                         <NavIcon>
                             <i className="fa fa-fw fa-cube" style={{ fontSize: '1.5em', color: 'black' }} />
