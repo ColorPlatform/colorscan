@@ -4,6 +4,7 @@ import {Badge,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,Uncontrolled
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar.jsx';
 import i18n from 'meteor/universe:i18n';
+ 
 
 const T = i18n.createComponent();
 export default class Header extends Component {
@@ -76,6 +77,7 @@ export default class Header extends Component {
                   {this.state.networks}
               </UncontrolledDropdown>
               <SearchBar id="header-search" history={this.props.history} />
+              <a class="btn d-none d-lg-inline-block  mb-3 mb-md-0 ml-md-3 text-light border border-primary" href="https://wallet.mainbeta-3.color-platform.org">Wallet</a>
               
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
@@ -90,11 +92,12 @@ export default class Header extends Component {
                             }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="validator" || window.location.pathname.split('/')[1]==="validators" || window.location.pathname.split('/')[1]==="account"?'iss-active':null} to="/validators"><T>navbar.validators</T></NavLink>
                       </NavItem>
-                      <NavItem onClick={() => {
+{/*                      <NavItem onClick={() => {
                               this.toggleClose();
                             }} id="toggle" className="toggle">
                           <NavLink className={window.location.pathname.split('/')[1]==="leagues" ?'iss-active':null} to="/leagues"><T>navbar.leagues</T></NavLink>
                       </NavItem>
+*/}
                       <NavItem onClick={() => {
                               this.toggleClose();
                             }} id="toggle" className="toggle">
