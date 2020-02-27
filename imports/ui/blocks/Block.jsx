@@ -38,6 +38,8 @@ export default class Block extends Component{
     }
 
     render(){
+	moment.relativeTimeThreshold('s',59);
+	moment.relativeTimeThreshold('ss', 0);
         if (this.props.loading){
             return <Container id="block">
                 <Spinner type="grow" color="primary" />

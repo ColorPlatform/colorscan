@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet';
 import i18n from 'meteor/universe:i18n';
 import SideNav, { NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import moment from 'moment';
 
 const T = i18n.createComponent();
 export default class BlocksTable extends Component {
@@ -147,7 +148,7 @@ export default class BlocksTable extends Component {
                         </NavText>
                         
                     </NavItem>
-                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
+{/*                    <NavItem eventKey="leagues" onClick={ e => this.props.history.push("/leagues") } title="Leagues">
                         <NavIcon>
                             <i className="fa fa-fw fa-flag" style={{ fontSize: '1.5em', color: 'black' }} />
                         </NavIcon>
@@ -156,6 +157,7 @@ export default class BlocksTable extends Component {
                         </NavText>
                         
                     </NavItem>
+*/}
                     <NavItem eventKey="blocks" onClick={ e => this.props.history.push("/blocks") } title="Blocks">
                         <NavIcon>
                             <i className="fa fa-fw fa-cube" style={{ fontSize: '1.5em', color: 'black' }} />
