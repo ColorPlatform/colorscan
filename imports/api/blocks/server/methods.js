@@ -79,6 +79,7 @@ Meteor.methods({
     'blocks.getLatestHeight': function() {
         this.unblock();
         let url = RPC+'/status';
+console.time('blocks.getLatestHeight');
         try{
             let response = HTTP.get(url);
             let status = JSON.parse(response.content);
@@ -87,6 +88,9 @@ Meteor.methods({
         catch (e){
             return 0;
         }
+	finally {
+console.timeEnd('blocks.getLatestHeight');
+	}
     },
     'blocks.getCurrentHeight': function() {
         this.unblock();
