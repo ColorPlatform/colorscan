@@ -5,3 +5,4 @@ settings.json
 settings.*.json
 output/
 bundle/
+build/
