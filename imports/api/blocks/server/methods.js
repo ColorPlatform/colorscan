@@ -79,7 +79,6 @@ Meteor.methods({
     'blocks.getLatestHeight': function() {
         this.unblock();
         let url = RPC+'/status';
-console.time('blocks.getLatestHeight');
         try{
             let response = HTTP.get(url);
             let status = JSON.parse(response.content);
@@ -88,9 +87,6 @@ console.time('blocks.getLatestHeight');
         catch (e){
             return 0;
         }
-	finally {
-console.timeEnd('blocks.getLatestHeight');
-	}
     },
     'blocks.getCurrentHeight': function() {
         this.unblock();
@@ -168,6 +164,7 @@ console.timeEnd('blocks.getLatestHeight');
                     if (response.statusCode == 200){
                         let block = JSON.parse(response.content);
                         block = block.result;
+                        // console.log("DEBUG: received block", block);
                         // store height, hash, numtransaction and time in db
                         let blockData = {};
                         blockData.height = height;
@@ -177,20 +174,24 @@ console.timeEnd('blocks.getLatestHeight');
                         blockData.lastBlockHash = block.block.header.last_block_id.hash;
                         blockData.proposerAddress = block.block.header.proposer_address;
                         blockData.validators = [];
-                        let precommits = block.block.last_commit.precommits;
-                        if (precommits != null){
-                            // console.log(precommits.length);
-                            for (let i=0; i<precommits.length; i++){
-                                if (precommits[i] != null){
-                                    blockData.validators.push(precommits[i].validator_address);
+                        let recent_commits = block.block.recent_commits
+                        let precommits = null
+                        if (recent_commits != null && recent_commits.length > 0 && recent_commits[0] != null) {
+                            // console.log("DEBUG: last commit", recent_commits[0])
+                            precommits = recent_commits[0].precommits;
+                            if (precommits != null){
+                                // console.log(precommits.length);
+                                for (let i=0; i<precommits.length; i++){
+                                    if (precommits[i] != null){
+                                        blockData.validators.push(precommits[i].validator_address);
+                                    }
                                 }
+
+                                analyticsData.precommits = precommits.length;
+                                // record for analytics
+                                // PrecommitRecords.insert({height:height, precommits:precommits.length});
                             }
-
-                            analyticsData.precommits = precommits.length;
-                            // record for analytics
-                            // PrecommitRecords.insert({height:height, precommits:precommits.length});
-                        }
-
+                        } 
                         // save txs in database
                         if (block.block.data.txs && block.block.data.txs.length > 0){
                             for (t in block.block.data.txs){
@@ -239,6 +240,13 @@ console.timeEnd('blocks.getLatestHeight');
                         if (height > 1){
                             // record precommits and calculate uptime
                             // only record from block 2
+                            precommits=[]
+                            let rc = block.block.recent_commits || [];
+
+                            for (i in rc) {
+                                console.log("DEBUG: adding precommits ", (rc[i].precommits || []).length)
+                                precommits = precommits.concat(rc[i].precommits || []);
+                            }
                             for (i in validators.result.validators){
                                 let address = validators.result.validators[i].address;
                                 let record = {
@@ -247,17 +255,19 @@ console.timeEnd('blocks.getLatestHeight');
                                     exists: false,
                                     voting_power: parseInt(validators.result.validators[i].voting_power)//getValidatorVotingPower(existingValidators, address)
                                 }
-
+                                // TODO: Use all precommits, not only the last one
+                                // Merge several arrays?
                                 for (j in precommits){
                                     if (precommits[j] != null){
                                         if (address == precommits[j].validator_address){
                                             record.exists = true;
+                                            console.log("DEBUG: found in precommits", address)
                                             precommits.splice(j,1);
                                             break;
                                         }
                                     }
                                 }
-
+                                
                                 // calculate the uptime based on the records stored in previous blocks
                                 // only do this every 15 blocks ~
 
