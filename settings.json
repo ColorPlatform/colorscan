@@ -1,7 +1,7 @@
 {
     "public":{
-        "chainName": "Local testnet",
-        "chainId": "localhost-testnet",
+        "chainName": "Color Mainnet Release Candidate",
+        "chainId": "ReleaseCandidate",
         "gtm": "{Add your Google Tag Manager ID here}",
         "slashingWindow": 10000,
         "uptimeWindow": 250,
@@ -17,10 +17,10 @@
         "stakingFraction": 1000000,
         "coingeckoId": "color"
     },
-    "genesisFile": "http://localhost:37001/genesis",
+    "genesisFile": "https://rpc.rc.color-platform.org/genesis",
     "remote":{
-        "rpc":"http://localhost:37001",
-        "lcd":"http://localhost:1317"
+        "rpc":"https://rpc.rc.color-platform.org",
+        "lcd":"https://lcd.rc.color-platform.org"
     },
     "debug": {
         "startTimer": true,
