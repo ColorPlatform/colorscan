@@ -14,6 +14,10 @@ export default class Block extends Component {
         let proposer = this.props.block.proposer();
 	moment.relativeTimeThreshold('s', 59);
 	moment.relativeTimeThreshold('ss', 0);
+	let prev_time = ("prev_time" in this.props.block)
+	let diff_time = (this.props.block.time - this.props.block.prev_time)/1000.0;
+	// console.log("Diff time " + diff_time);
+
         if (proposer){
             let moniker = (proposer.description&&proposer.description.moniker)?proposer.description.moniker:proposer.address;
             let identity = (proposer.description&&proposer.description.identity)?proposer.description.identity:"";

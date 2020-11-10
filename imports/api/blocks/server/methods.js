@@ -144,8 +144,12 @@ Meteor.methods({
             }
 
             console.log("all validators: "+validatorSet.length);
+	    let prev_time = new Date();
 
-            for (let height = curr+1 ; height <= until ; height++) {
+            // for (let height = curr+1 ; height <= until ; height++) {
+            
+            for (let height = curr; height <= until ; height++) {
+		if (height==0) { continue; }
                 let startBlockTime = new Date();
                 // add timeout here? and outside this loop (for catched up and keep fetching)?
                 this.unblock();
@@ -171,6 +175,14 @@ Meteor.methods({
                         blockData.hash = block.block_meta.block_id.hash;
                         blockData.transNum = block.block_meta.header.num_txs;
                         blockData.time = new Date(block.block.header.time);
+			blockData.prev_time = prev_time;
+			prev_time = blockData.time;
+			if (blockData.height == curr) {
+				console.log("DEBUG: Current block: time", blockData.prev_time);
+				continue;
+			} else {
+				console.log("DEBUG: Previous block: time", blockData.prev_time);
+			}
                         blockData.lastBlockHash = block.block.header.last_block_id.hash;
                         blockData.proposerAddress = block.block.header.proposer_address;
                         blockData.validators = [];
@@ -244,7 +256,7 @@ Meteor.methods({
                             let rc = block.block.recent_commits || [];
 
                             for (i in rc) {
-                                console.log("DEBUG: adding precommits ", (rc[i].precommits || []).length)
+                                // console.log("DEBUG: adding precommits ", (rc[i].precommits || []).length)
                                 precommits = precommits.concat(rc[i].precommits || []);
                             }
                             for (i in validators.result.validators){
@@ -261,7 +273,7 @@ Meteor.methods({
                                     if (precommits[j] != null){
                                         if (address == precommits[j].validator_address){
                                             record.exists = true;
-                                            console.log("DEBUG: found in precommits", address)
+                                            // console.log("DEBUG: found in precommits", address)
                                             precommits.splice(j,1);
                                             break;
                                         }

@@ -32,7 +32,7 @@
     "params":{
         "startHeight": 0,
         "defaultBlockTime": 5000,
-        "blockInterval": 15000,
+        "blockInterval": 1500,
         "consensusInterval": 1000,
         "statusInterval":7500,
         "signingInfoInterval": 1800000,
